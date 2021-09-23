@@ -1,0 +1,13 @@
+MAILDIR=$HOME
+VERBOSE=off
+LOGFILE=/tmp/procmaillog
+:0
+* ^TO392499367@qq.com
+Mail/QQMail/inbox
+
+:0
+* ^TOshejialuo@stu.xidian.edu.cn
+Mail/XiDianMail/inbox
+
+:0：
+Mail/inbox

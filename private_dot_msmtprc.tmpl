@@ -1,0 +1,24 @@
+# QQMail (FoxMail)
+account QQMail
+    auth login
+    host smtp.qq.com
+    port 587
+    from 392499367@qq.com
+    user 392499367@qq.com
+    password {{ keyring "QQMail" "shejialuo" | quote }}
+    tls on
+    tls_certcheck off
+
+# XiDianMail
+account XiDianMail
+    auth login
+    host mail.stu.xidian.edu.cn
+    port 465
+    from shejialuo@stu.xidian.edu.cn
+    user shejialuo@stu.xidian.edu.cn
+    password {{ keyring "XiDianMail" "shejialuo" | quote }}
+    tls on
+    tls_starttls off
+    tls_certcheck off
+
+logfile /tmp/msmtp.log

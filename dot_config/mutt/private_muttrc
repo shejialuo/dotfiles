@@ -1,0 +1,46 @@
+color error        color231    color212
+color indicator        color231    color241
+color markers      color210    default
+color message      default     default
+color normal       default     default
+color prompt       default         default
+color search       color84     default
+color status       color141    color236
+color tilde        color231    default
+color tree     color141    default
+color index        color210    default     ~D
+color index        color84     default     ~F
+color index        color117    default     ~N
+color index        color212    default     ~Q
+color index        color215    default     ~T
+color index        color141    default     ~v
+color hdrdefault   color117    default
+color header       color231    default     ^Subject:.*
+color attachment   color228    default
+color body     color231    default     [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses
+color body     color228    default     (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs
+color body     color231    default     (^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text
+color body     color231    default     (^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text
+color body     color231    default     (^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text
+color quoted       color61     default
+color quoted1      color117    default
+color quoted2      color84     default
+color quoted3      color215    default
+color quoted4      color212    default
+color signature        color212    default
+
+set use_from=yes
+set envelope_from=yes
+set move=yes
+set include
+set charset="utf-8"
+set realname="shejialuo"
+auto_view text/html
+alternative_order text/plain text/enriched 
+set editor="vim"
+
+
+source ~/.config/mutt/accounts/QQMail
+
+folder-hook ~/Mail/XiDianMail/* source ~/.config/mutt/accounts/XiDianMail
+

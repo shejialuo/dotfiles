@@ -1,0 +1,9 @@
+#  QQMail (FoxMail)
+poll imap.qq.com protocol IMAP user "392499367@qq.com" password {{ keyring "QQMail" "shejialuo"| quote}} ssl
+mimedecode
+mda "/usr/bin/procmail -f %F -d %T"
+
+# XiDianMail
+poll mail.stu.xidian.edu.cn protocol IMAP user "shejialuo@stu.xidian.edu.cn" password {{ keyring "XiDianMail" "shejialuo"| quote}} sslproto ""
+mimedecode
+mda "/usr/bin/procmail -f %F -d %T"

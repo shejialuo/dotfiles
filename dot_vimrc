@@ -1,0 +1,202 @@
+""" Basic Configuration
+
+" To set the encode format
+set fileencoding=utf-8
+set termencoding=utf-8
+set encoding=utf-8
+
+" To set the tab to space
+set expandtab
+
+" To set the tab stop to 2
+set ts=2
+
+" To set the indent same
+set autoindent
+
+" To apply the vim's operation
+set nocompatible
+
+" To display the line number
+set number
+
+" To display the current line boldly
+set cursorline
+
+" To show normal mode's commands
+set showcmd
+
+" To set the quick search
+set incsearch
+
+" To display the airline
+set laststatus=2
+
+" To display the tabline
+set showtabline=2
+
+" To hide the default mode text
+set noshowmode
+
+" To set no backup
+set nobackup
+
+" To set the tab and space display
+set listchars=tab:>-,trail:-
+set list
+
+set ttimeoutlen=50
+
+set cmdheight=2
+
+set updatetime=300
+
+
+""" End
+
+
+
+""" Dracula Theme
+
+packadd!dracula
+syntax enable
+colorscheme dracula
+
+""" End
+
+
+
+""" vim-which-key
+
+" To change the leader to space.
+let g:mapleader = "\<Space>"
+
+" To change the local leader to ,
+let g:maplocalleader = ","
+
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+
+""" End
+
+
+
+""" coc
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+""" End
+
+
+
+""" NERD Commenter
+
+filetype plugin on
+
+let g:NERDSpaceDelims = 1
+
+let g:NERDCommentEmptyLines = 1
+
+""" End
+
+
+
+""" vim-gitgutter
+
+nmap <Leader>hj <Plug>(GitGutterNextHunk)
+nmap <Leader>hk <Plug>(GitGutterPrevHunk)
+
+""" End
+
+
+
+""" coc-explorer
+
+:nnoremap <Leader>e :CocCommand explorer<CR>
+
+""" End
+
+
+
+""" coc-yank
+
+nnoremap <silent> <Leader>y  :<C-u>CocList -A --normal yank<cr>
+
+""" End
+
+
+
+""" coc-markdown-lint
+
+nnoremap <silent> <leader>mf :CocCommand markdownlint.fixAll<CR>
+
+""" End
+
+
+
+""" coc-markdown-preview-enhanced
+
+nnoremap <silent> <Leader>mo :CocCommand markdown-preview-enhanced.openPreview<CR>
+nnoremap <silent> <Leader>ms :CocCommand markdown-preview-enhanced.syncPreview<CR>
+
+""" End
+
+
+
+""" coc-spell-checker
+
+vmap <leader>a <Plug>(coc-codeaction-selected)
+
+""" End
+
+
+
+""" coc-snippets
+
+imap <C-l> <Plug>(coc-snippets-expand)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+""" End
+
+""" coc-lists
+
+nnoremap <silent> <Leader>ls : CocList symbols<CR>
+nnoremap <silent> <Leader>le : CocList diagnostics<CR>
+nnoremap <silent> <Leader>lc : CocList changes<CR>
+nnoremap <silent> <Leader>lo : CocList outline<CR>
+nnoremap <silent> <Leader>lt : CocList tags<CR>
+nnoremap <silent> <Leader>lf : CocList quickfix<CR>
+nnoremap <silent> <Leader>lm : CocList maps<CR>
+nnoremap <silent> <Leader>ll : CocList files<CR>
+nnoremap <silent> <Leader>lj : CocNext<CR>
+nnoremap <silent> <Leader>lk : CocPrev<CR>
+
+""" End
+
+
