@@ -18,7 +18,7 @@ git pull origin master
 
 # vim-gitgutter
 cd ~/.vim/pack/integration/start/vim-gitgutter
-git pill origin master
+git pull origin master
 
 # vim-which-key
 cd ~/.vim/pack/interface/start/vim-which-key

@@ -83,7 +83,7 @@ bindsym $mod+F2 exec --no-startup-id microsoft-edge-dev
 bindsym $mod+F3 exec --no-startup-id pcmanfm
 
 # To launch spotify
-bindsym $mod+F4 exec --no-startup-id spotify --force-device-scale-factor=1.5
+bindsym $mod+F4 exec --no-startup-id spotify-tray -- --force-device-scale-factor=1.5
 
 # To launch alacritty terminal simulator
 bindsym $mod+Return exec --no-startup-id alacritty
@@ -229,6 +229,9 @@ bindsym $mod+Ctrl+Left  exec --no-startup-id "dbus-send --print-reply --dest=org
 
 # next
 bindsym $mod+Ctrl+Right exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+
+# Toggle the icon
+bindsym $mod+Ctrl+Down exec --no-startup-id "spotify-tray -t"
 
 ###########################################################
 ####                    End                            ####

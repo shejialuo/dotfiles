@@ -196,6 +196,7 @@ nnoremap <silent> <Leader>lm : CocList maps<CR>
 nnoremap <silent> <Leader>ll : CocList files<CR>
 nnoremap <silent> <Leader>lj : CocNext<CR>
 nnoremap <silent> <Leader>lk : CocPrev<CR>
+nnoremap <silent> <Leader>lb : CocList buffers<CR>
 
 """ End
 
