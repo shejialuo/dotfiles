@@ -6,3 +6,5 @@ source $ZSH/oh-my-zsh.sh
 alias pc="proxychains4"
 alias p-on="export https_proxy=http://127.0.0.1:7890; export http_proxy=http://127.0.0.1:7890"
 alias p-off="unset http_proxy https_proxy"
+
+source $ZSH_CUSTOM/plugins/dracula/zsh-syntax-highlighting.sh

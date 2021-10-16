@@ -28,9 +28,7 @@ git pull origin master
 cd ~/.vim/pack/coc/start/coc.nvim
 git pull origin master
 
-vim -c "CocUpdate coc-snippets coc-pairs coc-lists coc-explorer coc-diagnostic coc-webview coc-markdown-preview-enhanced coc-yank coc-spell-checker" -c "q"
-
-vim -c "CocUpdate coc-sh coc-css coc-html coc-json coc-tsserver coc-markdownlint coc-pyright coc-clangd coc-angular coc-go coc-yaml " -c "q"
+vim -c "CocUpdate"
 
 # nerdcommenter
 cd ~/.vim/pack/tool/start/nerdcommenter
