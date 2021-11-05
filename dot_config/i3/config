@@ -15,7 +15,6 @@
 # To define varibales for workspace
 # Worksapces oepration
 # i3 operations
-# i3bar configuration
 # Container decorations
 # Borders and gaps
 # Start applications on specific workspaces
@@ -63,6 +62,9 @@ exec --no-startup-id picom -b
 # To autostart input method
 exec --no-startup-id fcitx5
 
+# To start polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
 ###########################################################
 ####                      End                          ####
 ###########################################################
@@ -102,6 +104,9 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # To do the notification action by dunstctl
 bindsym $mod+z exec --no-startup-id dunstctl action
+
+# To toggle the polybar
+bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
 
 ###########################################################
 ####                      End                          ####
@@ -244,14 +249,14 @@ bindsym $mod+Ctrl+Down exec --no-startup-id "spotify-tray -t"
 ####          To define variables for workspaces       ####
 ###########################################################
 
-set $ws1 ""
-set $ws2 ""
-set $ws3 ""
-set $ws4 ""
-set $ws5 ""
-set $ws6 ""
-set $ws7 ""
-set $ws8 ""
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
 
 ###########################################################
 ####                   End                             ####
@@ -312,59 +317,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 ###########################################################
 ####                      End                          ####
-###########################################################
-
-
-
-###########################################################
-####               i3bar configuration                 ####
-###########################################################
-
-bar {
-    # execute i3bar and --transparency means transparent
-    # --transparency needs to cooperate with compton
-    i3bar_command i3bar --transparency
-
-    # configure height
-    height 28
-
-    # font and its size
-    font pango:sarase 11
-
-    # to configure i3bar mode
-    mode dock
-
-    # to define the modifier
-    modifier $mod
-
-    # execute corresponding satus script
-    # use conky
-    status_command exec ~/.config/i3/jconky.sh
-
-    # the i3bar is on the top
-    position top
-
-    # configure separater "space"
-    separator_symbol ""
-
-    # theme color
-    colors {
-        background #10101000
-        statusline #FFFFFF
-        separator  #3399FF
-        focused_workspace  #3297FD #11111100 #FFFFFF
-        active_workspace   #FFFFFF #FFFFFF00 #FFFFFF
-        inactive_workspace #111111 #11111100 #FFFFFF
-        urgent_workspace   #990000 #11111100 #FFFFFF
-        binding_mode       #990000 #99000000 #FFFFFF
-    }
-}
-
-# to make i3bar invisible or visible
-bindsym $mod+m bar mode toggle
-
-###########################################################
-####                     End                           ####
 ###########################################################
 
 

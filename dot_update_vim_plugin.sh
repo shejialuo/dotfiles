@@ -37,3 +37,9 @@ git pull origin master
 # vim-visual-multi
 cd ~/.vim/pack/tool/start/vim-visual-multi
 git pull origin master
+
+# vim-wakatime
+cd ~/.vim/pack/tool/start/vim-wakatime
+git pull origin master
+
+

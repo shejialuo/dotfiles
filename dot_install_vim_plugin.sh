@@ -46,8 +46,12 @@ cd ~/.vim/pack/tool/start
 git clone https://github.com/preservim/nerdcommenter
 vim -u NONE -c "helptags  ~/.vim/pack/tool/start/nerdcommenter/doc" -c "q"
 
-# vun-visual-multi
+# vim-visual-multi
 cd ~/.vim/pack/tool/start
 git clone https://github.com/mg979/vim-visual-multi
 vim -u NONE -c "helptags ~/.vim/pack/tool/start/vim-visual-multi/doc" -c "q"
+
+# vim-wakatime
+cd ~/.vim/pack/tool/start
+git clone https://github.com/wakatime/vim-wakatime
 
