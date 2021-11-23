@@ -108,6 +108,9 @@ bindsym $mod+z exec --no-startup-id dunstctl action
 # To toggle the polybar
 bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
 
+# To start ssh
+bindsym $mod+Shift+s exec --no-startup-id rofi -show ssh
+
 ###########################################################
 ####                      End                          ####
 ###########################################################
