@@ -42,4 +42,11 @@ git pull origin master
 cd ~/.vim/pack/tool/start/vim-wakatime
 git pull origin master
 
+# asyncrun.vim
+cd ~/.vim/pack/tool/start/asyncrun.vim
+git pull origin master
+
+# asynctasks.vim
+cd ~/.vim/pack/tool/start/asynctasks.vim
+git pull origin master
 

@@ -11,5 +11,13 @@
       "args": ["up","--method", "stdio"],
       "filetypes": ["sql", "mysql"]
     }
-  }
+  },
+
+  // coc-angular
+  "angular.trace.server": "off",
+  "angular.log": "off",
+  "angular.view-engine": false,
+  "angular.suggest.includeCompletionsWithSnippetText": true,
+  "angular.enable-strict-mode-prompt": true
+
 }

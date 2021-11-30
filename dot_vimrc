@@ -107,9 +107,7 @@ endfunction
 """ NERD Commenter
 
 filetype plugin on
-
 let g:NERDSpaceDelims = 1
-
 let g:NERDCommentEmptyLines = 1
 
 """ End
@@ -120,14 +118,25 @@ let g:NERDCommentEmptyLines = 1
 
 nmap <Leader>hj <Plug>(GitGutterNextHunk)
 nmap <Leader>hk <Plug>(GitGutterPrevHunk)
+nmap <Leader>hs <Plug>(GitGutterStageHunk)
+nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 
 """ End
 
 
 
-""" coc-explorer
+""" asyncrun.vim
 
-:nnoremap <Leader>e :CocCommand explorer<CR>
+let g:asyncrun_open = 6
+nnoremap <leader>ee :AsyncRun
+
+""" End
+
+
+
+""" asynctasks.vim
+
+let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
 
 """ End
 
@@ -135,7 +144,25 @@ nmap <Leader>hk <Plug>(GitGutterPrevHunk)
 
 """ coc-yank
 
-nnoremap <silent> <Leader>y  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent> <Leader>ly : CocList yank<CR>
+nnoremap <silent> <Leader>eyc : CocCommand yank.clean<CR>
+
+""" End
+
+
+
+""" coc-explorer
+
+nnoremap <Leader>r :CocCommand explorer<CR>
+
+""" End
+
+
+
+""" coc-angular
+
+nnoremap <silent> <Leader>eat : CocCommand angular.goToTemplateForComponent<CR>
+nnoremap <silent> <Leader>eac : CocCommand angular.goToComponentWithTemplateFile<CR>
 
 """ End
 
@@ -153,14 +180,16 @@ nnoremap <silent> <leader>mf :CocCommand markdownlint.fixAll<CR>
 
 nnoremap <silent> <Leader>mo :CocCommand markdown-preview-enhanced.openPreview<CR>
 nnoremap <silent> <Leader>ms :CocCommand markdown-preview-enhanced.syncPreview<CR>
+nnoremap <silent> <Leader>mt :CocCommand markdown-preview-enhanced.insertTable<CR>
+nnoremap <silent> <Leader>mp :CocCommand markdown-preview-enhanced.openImageHelper<CR>
 
 """ End
 
 
 
-""" coc-spell-checker
+""" coc-action
 
-vmap <leader>a <Plug>(coc-codeaction-selected)
+nnoremap <leader>a :CocAction<CR>
 
 """ End
 
@@ -185,6 +214,16 @@ let g:coc_snippet_next = '<tab>'
 
 """ End
 
+
+
+""" coc-prettier
+
+nnoremap <silent> <Leader>ff :CocCommand prettier.formatFile<CR>
+
+""" End
+
+
+
 """ coc-lists
 
 nnoremap <silent> <Leader>ls : CocList symbols<CR>
@@ -193,12 +232,11 @@ nnoremap <silent> <Leader>lc : CocList changes<CR>
 nnoremap <silent> <Leader>lo : CocList outline<CR>
 nnoremap <silent> <Leader>lt : CocList tags<CR>
 nnoremap <silent> <Leader>lf : CocList quickfix<CR>
-nnoremap <silent> <Leader>lm : CocList maps<CR>
+nnoremap <silent> <Leader>lm : CocList marks<CR>
 nnoremap <silent> <Leader>ll : CocList files<CR>
 nnoremap <silent> <Leader>lj : CocNext<CR>
 nnoremap <silent> <Leader>lk : CocPrev<CR>
 nnoremap <silent> <Leader>lb : CocList buffers<CR>
+nnoremap <silent> <Leader>lt : CocList tasks<CR>
 
 """ End
-
-
