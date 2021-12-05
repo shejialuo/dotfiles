@@ -39,7 +39,7 @@ git clone --branch release https://github.com/neoclide/coc.nvim.git --depth=1
 
 vim -c "CocInstall coc-snippets coc-pairs coc-lists coc-explorer coc-diagnostic coc-webview coc-markdown-preview-enhanced coc-yank coc-spell-checker coc-prettier coc-tasks"
 
-vim -c "CocInstall coc-sh coc-css coc-html coc-json coc-tsserver coc-markdownlint coc-pyright coc-clangd coc-angular coc-go coc-yaml coc-cmake coc-graphql"
+vim -c "CocInstall coc-sh coc-css coc-html coc-json coc-tsserver coc-markdownlint coc-pyright coc-clangd coc-angular coc-go coc-yaml coc-cmake coc-graphql coc-texlab"
 
 # nerdcommenter
 cd ~/.vim/pack/tool/start
