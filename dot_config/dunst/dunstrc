@@ -54,17 +54,17 @@
 [experimental]
     per_monitor_dpi = false
 [urgency_low]
-    background = "#faffffaa"
+    background = "#faffff"
     foreground = "#002b36"
     frame_color = "#f5ffffaa"
     timeout = 10
 [urgency_normal]
-    background = "#f7fff7aa"
+    background = "#f7fff7"
     foreground = "#002b36"
     frame_color = "#f2fff2aa"
     timeout = 10
 [urgency_critical]
-    background = "#fff2f2aa"
+    background = "#fff2f2"
     foreground = "#002b36"
     frame_color = "#fcebebaa"
     timeout = 0
