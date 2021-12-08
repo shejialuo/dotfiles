@@ -53,6 +53,8 @@ set updatetime=300
 
 set shiftwidth=2
 
+set foldmethod=manual
+
 """ End
 
 
@@ -88,6 +90,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <F2> <Plug>(coc-refactor)
+
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -128,7 +132,7 @@ nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 """ asyncrun.vim
 
 let g:asyncrun_open = 6
-nnoremap <leader>ee :AsyncRun
+nnoremap <Leader>ee :AsyncRun
 
 """ End
 
@@ -137,6 +141,18 @@ nnoremap <leader>ee :AsyncRun
 """ asynctasks.vim
 
 let g:asyncrun_rootmarks = ['.git', '.svn', '.root', '.project', '.hg']
+
+""" End
+
+
+
+""" vim-visual-multi
+
+let g:VM_maps = {}
+let g:VM_maps['Add Cursor Down'] = '<Leader>j'
+let g:VM_maps['Add Cursor Up'] = '<Leader>k'
+let g:VM_maps['Find Under'] = '<C-d>'
+let g:VM_maps['Find Subword Under'] = '<C-d>'
 
 """ End
 

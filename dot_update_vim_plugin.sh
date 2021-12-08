@@ -50,3 +50,7 @@ git pull origin master
 cd ~/.vim/pack/tool/start/asynctasks.vim
 git pull origin master
 
+# vim-polyglot
+cd ~/.vim/pack/tool/start/vim-polyglot
+git pull origin master
+
