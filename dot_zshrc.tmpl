@@ -1,0 +1,47 @@
+{{ if eq .chezmoi.hostname "ArchLinux" -}}
+export ZSH="/home/shejialuo/.oh-my-zsh"
+export EDITOR="vim"
+ZSH_THEME="agnoster"
+plugins=(git zsh-autosuggestions web-search autojump zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
+alias pc="proxychains4"
+alias p-on="export https_proxy=http://127.0.0.1:7890; export http_proxy=http://127.0.0.1:7890"
+alias p-off="unset http_proxy https_proxy"
+
+source $ZSH_CUSTOM/plugins/dracula/zsh-syntax-highlighting.sh
+{{ else if eq .chezmoi.hostname "ArchWSL" -}}
+export ZSH="/home/shejialuo/.oh-my-zsh"
+export EDITOR="vim"
+plugins=(git zsh-autosuggestions web-search autojump zsh-syntax-highlighting)
+ZSH_THEME="agnoster"
+source $ZSH/oh-my-zsh.sh
+export WIN_IP=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`
+sed -i '/\[ProxyList\]/,$d' ~/.proxychains.conf
+echo '[ProxyList]\nsocks5 '${WIN_IP}' 7890' >> ~/.proxychains.conf
+alias pc='proxychains4 -q -f ~/.proxychains.conf'
+my_proxy=http://${WIN_IP}:7890
+alias p-on='export all_proxy='${my_proxy}' http_proxy='${my_proxy}' https_proxy='${my_proxy}''
+alias p-off='unset all_proxy http_proxy https_proxy'
+{{ else if eq .chezmoi.hostname "UbuntuWSL" -}}
+export ZSH="/home/shejialuo/.oh-my-zsh"
+export EDITOR="vim"
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+ZSH_THEME="awesomepanda"
+source $ZSH/oh-my-zsh.sh
+export WIN_IP=`cat /etc/resolv.conf | grep nameserver | awk '{print $2}'`
+sed -i '/\[ProxyList\]/,$d' ~/.proxychains.conf
+echo '[ProxyList]\nsocks5 '${WIN_IP}' 7890' >> ~/.proxychains.conf
+alias pc='proxychains4 -q -f ~/.proxychains.conf'
+my_proxy=http://${WIN_IP}:7890
+alias p-on='export all_proxy='${my_proxy}' http_proxy='${my_proxy}' https_proxy='${my_proxy}''
+alias p-off='unset all_proxy http_proxy https_proxy'
+{{ else if eq .chezmoi.hostname "Debian" -}}
+IP=""
+export ZSH="/home/shejialuo/.oh-my-zsh"
+export EDITOR="vim"
+ZSH_THEME="agnoster"
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
+alias p-on="export https_proxy=http://${IP}:7890; export http_proxy=http://${IP}:7890"
+alias p-off="unset http_proxy https_proxy"
+{{ end -}}

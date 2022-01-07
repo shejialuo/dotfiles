@@ -1,1 +1,13 @@
 README.md
+
+{{- if ne .chezmoi.hostname "ArchLinux"}}
+.arai2/
+.config/
+.xprofile
+.local/
+.fetchmailrc
+.pam_environment
+.msmtprc
+.procmailrc
+.screenlayout/
+{{- end}}
