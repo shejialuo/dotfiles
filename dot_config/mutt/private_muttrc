@@ -44,3 +44,5 @@ source ~/.config/mutt/accounts/QQMail
 
 folder-hook ~/Mail/XiDianMail/* source ~/.config/mutt/accounts/XiDianMail
 
+folder-hook ~/Mail/GMail/* source ~/.config/mutt/accounts/GMail
+

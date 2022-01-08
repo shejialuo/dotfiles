@@ -21,4 +21,15 @@ account XiDianMail
     tls_starttls off
     tls_certcheck off
 
+# GMail
+account GMail
+    auth login
+    host smtp.gmail.com
+    port 587
+    from shejialuo@gmail.com
+    user shejialuo@gmail.com
+    password {{ keyring "GMail" "shejialuo"| quote }}
+    tls on
+    tls_certcheck on
+
 logfile /tmp/msmtp.log

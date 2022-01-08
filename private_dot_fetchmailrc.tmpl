@@ -7,3 +7,8 @@ mda "/usr/bin/procmail -f %F -d %T"
 poll mail.stu.xidian.edu.cn protocol IMAP user "shejialuo@stu.xidian.edu.cn" password {{ keyring "XiDianMail" "shejialuo"| quote}} sslproto ""
 mimedecode
 mda "/usr/bin/procmail -f %F -d %T"
+
+# GMail
+poll imap.gmail.com protocol IMAP user "shejialuo@gmail.com" password {{ keyring "GMail" "shejialuo" | quote}} ssl
+mimedecode
+mda "/usr/bin/procmail -f %F -d %T"
