@@ -36,7 +36,7 @@ set include
 set charset="utf-8"
 set realname="shejialuo"
 auto_view text/html
-alternative_order text/plain text/enriched 
+alternative_order text/plain text/enriched
 set editor="vim"
 
 
@@ -46,3 +46,4 @@ folder-hook ~/Mail/XiDianMail/* source ~/.config/mutt/accounts/XiDianMail
 
 folder-hook ~/Mail/GMail/* source ~/.config/mutt/accounts/GMail
 
+macro index,pager I '<shell-escape> proxychains4 fetchmail <enter>'
