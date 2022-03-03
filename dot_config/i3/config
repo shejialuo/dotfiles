@@ -65,6 +65,12 @@ exec --no-startup-id fcitx5
 # To start polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
+# To start greenclip daemon
+exec --no-startup-id greenclip daemon
+
+# To start mailnag
+exec --no-startup-id proxychains4 mailnag
+
 ###########################################################
 ####                      End                          ####
 ###########################################################
@@ -113,6 +119,15 @@ bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
 
 # To start ssh
 bindsym $mod+Shift+s exec --no-startup-id rofi -show ssh -no-parse-known-hosts
+
+# To start rofi bluetooth
+bindsym $mod+b exec --no-startup-id rofi-bluetooth
+
+# To start rofi network
+bindsym $mod+n exec --no-startup-id networkmanager_dmenu
+
+# To start rofi clipboard
+bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 ###########################################################
 ####                      End                          ####
