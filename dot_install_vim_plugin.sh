@@ -42,6 +42,7 @@ vim -c "CocInstall coc-snippets coc-pairs coc-lists coc-explorer coc-diagnostic 
 vim -c "CocInstall coc-sh coc-css coc-html coc-json coc-tsserver coc-markdownlint coc-pyright coc-clangd coc-angular coc-go coc-yaml coc-cmake coc-graphql coc-texlab"
 
 # nerdcommenter
+mkdir -p ~/.vim/pack/tool/start
 cd ~/.vim/pack/tool/start
 git clone https://github.com/preservim/nerdcommenter
 vim -u NONE -c "helptags  ~/.vim/pack/tool/start/nerdcommenter/doc" -c "q"
