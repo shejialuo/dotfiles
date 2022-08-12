@@ -26,16 +26,12 @@ git pull origin master
 
 # coc.vim
 cd ~/.vim/pack/coc/start/coc.nvim
-git pull origin master
+git pull origin release
 
 vim -c "CocUpdate"
 
 # nerdcommenter
 cd ~/.vim/pack/tool/start/nerdcommenter
-git pull origin master
-
-# vim-visual-multi
-cd ~/.vim/pack/tool/start/vim-visual-multi
 git pull origin master
 
 # vim-wakatime
