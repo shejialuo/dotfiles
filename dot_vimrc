@@ -122,6 +122,7 @@ function! ShowDocumentation()
 endfunction
 
 " Multiple cursor support
+nnoremap <C-c> <Plug>(coc-cursors-position)
 
 nmap <expr> <silent> <C-d> <SID>select_current_word()
 function! s:select_current_word()
