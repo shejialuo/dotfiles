@@ -231,7 +231,10 @@ nnoremap <silent> <Leader>mp :CocCommand markdown-preview-enhanced.openImageHelp
 
 """ coc-action
 
-nnoremap <leader>a :CocAction<CR>
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>ac <Plug>(coc-codeaction)
+
 
 """ End
 
