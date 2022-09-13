@@ -68,9 +68,6 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # To start greenclip daemon
 exec --no-startup-id greenclip daemon
 
-# To start mailnag
-exec --no-startup-id proxychains4 mailnag
-
 ###########################################################
 ####                      End                          ####
 ###########################################################
