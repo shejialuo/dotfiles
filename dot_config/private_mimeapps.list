@@ -33,6 +33,7 @@ inode/directory=ranger.desktop
 image/jpeg=viewnior.desktop
 audio/mpeg=mpv.desktop
 application/epub+zip=org.pwmt.zathura.desktop
+image/png=viewnior.desktop
 
 [Added Associations]
 x-scheme-handler/tg=userapp-Telegram Desktop-ERKA00.desktop;
@@ -49,3 +50,4 @@ application/wps-office.wpso=wps-office-wps.desktop;
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
 audio/mpeg=mpv.desktop;
 application/epub+zip=org.pwmt.zathura.desktop;
+image/png=viewnior.desktop;
