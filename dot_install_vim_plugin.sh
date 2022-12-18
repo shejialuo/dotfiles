@@ -51,14 +51,6 @@ vim -u NONE -c "helptags  ~/.vim/pack/tool/start/nerdcommenter/doc" -c "q"
 cd ~/.vim/pack/tool/start
 git clone https://github.com/wakatime/vim-wakatime
 
-# asyncrun.vim
-cd ~/.vim/pack/tool/start
-git clone https://github.com/skywind3000/asyncrun.vim
-
-# asynctasks.vim
-cd ~/.vim/pack/tool/start
-git clone https://github.com/skywind3000/asynctasks.vim
-
 # vim-polyglot
 cd ~/.vim/pack/tool/start
 git clone --depth 1 https://github.com/sheerun/vim-polyglot
