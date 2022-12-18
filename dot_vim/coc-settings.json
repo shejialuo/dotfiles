@@ -6,18 +6,19 @@
       "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
       "filetypes": ["haskell", "lhaskell"]
     },
-    "sql": {
-      "command": "sql-language-server",
-      "args": ["up","--method", "stdio"],
-      "filetypes": ["sql", "mysql"]
-    }
   },
+
+  // coc
+  "coc.preferences.formatOnSaveFiletypes": ["go"],
 
   // coc-angular
   "angular.trace.server": "off",
   "angular.log": "off",
   "angular.view-engine": false,
   "angular.suggest.includeCompletionsWithSnippetText": true,
-  "angular.enable-strict-mode-prompt": true
+  "angular.enable-strict-mode-prompt": true,
+
+  // coc-go
+  "go.goplsPath": "/home/shejialuo/Tool/go/bin/gopls",
 
 }
