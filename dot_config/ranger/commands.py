@@ -60,3 +60,119 @@ class my_edit(Command):
         # This is a generic tab-completion function that iterates through the
         # content of the current directory.
         return self._tab_directory_content()
+
+import subprocess
+import json
+import atexit
+import socket
+from pathlib import Path
+
+import logging
+logger = logging.getLogger(__name__)
+import traceback
+
+from ranger.ext.img_display import ImageDisplayer, register_image_displayer
+
+@register_image_displayer("mpv")
+class MPVImageDisplayer(ImageDisplayer):
+    """Implementation of ImageDisplayer using mpv, a general media viewer.
+    Opens media in a separate X window.
+
+    mpv 0.25+ needs to be installed for this to work.
+    """
+
+    def _send_command(self, path, sock):
+
+        message = '{"command": ["raw","loadfile",%s]}\n' % json.dumps(path)
+        s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        s.connect(str(sock))
+        logger.info('-> ' + message)
+        s.send(message.encode())
+        message = s.recv(1024).decode()
+        logger.info('<- ' + message)
+
+    def _launch_mpv(self, path, sock):
+
+        proc = subprocess.Popen([
+            * os.environ.get("MPV", "mpv").split(),
+            "--no-terminal",
+            "--force-window",
+            "--input-ipc-server=" + str(sock),
+            "--image-display-duration=inf",
+            "--loop-file=inf",
+            "--no-osc",
+            "--no-input-default-bindings",
+            "--keep-open",
+            "--idle",
+            "--",
+            path,
+        ])
+
+        @atexit.register
+        def cleanup():
+            proc.terminate()
+            sock.unlink()
+
+    def draw(self, path, start_x, start_y, width, height):
+
+        path = os.path.abspath(path)
+        cache = Path(os.environ.get("XDG_CACHE_HOME", "~/.cache")).expanduser()
+        cache = cache / "ranger"
+        cache.mkdir(exist_ok=True)
+        sock = cache / "mpv.sock"
+
+        try:
+            self._send_command(path, sock)
+        except (ConnectionRefusedError, FileNotFoundError):
+            logger.info('LAUNCHING ' + path)
+            self._launch_mpv(path, sock)
+        except Exception as e:
+            logger.exception(traceback.format_exc())
+            sys.exit(1)
+        logger.info('SUCCESS')
+
+from ranger_udisk_menu.mounter import mount
+
+import os
+import subprocess
+from ranger.api.commands import Command
+from ranger.container.file import File
+from ranger.ext.get_executables import get_executables
+
+
+class YankContent(Command):
+    """
+    Copy the content of image file and text file with xclip
+    """
+
+    def execute(self):
+        if 'xclip' not in get_executables():
+            self.fm.notify('xclip is not found.', bad=True)
+            return
+
+        arg = self.rest(1)
+        if arg:
+            if not os.path.isfile(arg):
+                self.fm.notify('{} is not a file.'.format(arg))
+                return
+            file = File(arg)
+        else:
+            file = self.fm.thisfile
+            if not file.is_file:
+                self.fm.notify('{} is not a file.'.format(file.relative_path))
+                return
+
+        relative_path = file.relative_path
+        cmd = ['xclip', '-selection', 'clipboard']
+        if not file.is_binary():
+            with open(file.path, 'rb') as fd:
+                subprocess.check_call(cmd, stdin=fd)
+        elif file.image:
+            cmd += ['-t', file.mimetype, file.path]
+            subprocess.check_call(cmd)
+            self.fm.notify('Content of {} is copied to x clipboard'.format(relative_path))
+        else:
+            self.fm.notify('{} is not an image file or a text file.'.format(relative_path))
+
+    def tab(self, tabnum):
+        return self._tab_directory_content()

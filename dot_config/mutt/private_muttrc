@@ -40,10 +40,10 @@ alternative_order text/plain text/enriched
 set editor="vim"
 
 
-source ~/.config/mutt/accounts/QQMail
+source ~/.config/mutt/accounts/GMail
 
 folder-hook ~/Mail/XiDianMail/* source ~/.config/mutt/accounts/XiDianMail
 
-folder-hook ~/Mail/GMail/* source ~/.config/mutt/accounts/GMail
+folder-hook ~/Mail/QQMail/* source ~/.config/mutt/accounts/QQMail
 
 macro index,pager I '<shell-escape> proxychains4 fetchmail <enter>'

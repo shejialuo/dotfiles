@@ -4,7 +4,7 @@ x-scheme-handler/http=microsoft-edge-dev.desktop
 x-scheme-handler/https=microsoft-edge-dev.desktop
 x-scheme-handler/about=microsoft-edge-dev.desktop
 x-scheme-handler/unknown=microsoft-edge-dev.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-ERKA00.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-FEWIW1.desktop
 application/wps-office.pptx=wps-office-wpp.desktop
 application/wps-office.ppt=wps-office-wpp.desktop
 application/wps-office.pot=wps-office-wpp.desktop
@@ -36,7 +36,7 @@ application/epub+zip=org.pwmt.zathura.desktop
 image/png=viewnior.desktop
 
 [Added Associations]
-x-scheme-handler/tg=userapp-Telegram Desktop-ERKA00.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-ERKA00.desktop;userapp-Telegram Desktop-FEWIW1.desktop;
 application/wps-office.potx=wps-office-wpp.desktop;
 application/wps-office.dpss=wps-office-wpp.desktop;
 application/wps-office.dpso=wps-office-wpp.desktop;
