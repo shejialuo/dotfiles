@@ -90,8 +90,8 @@ bindsym $mod+F3 exec --no-startup-id pcmanfm
 # To launch spotify
 bindsym $mod+F4 exec --no-startup-id spotify-tray -- --force-device-scale-factor=1.5
 
-# To launch alacritty terminal simulator
-bindsym $mod+Return exec --no-startup-id alacritty
+# To launch kitty terminal simulator
+bindsym $mod+Return exec --no-startup-id kitty
 
 # To launch deepin-screenshot
 bindsym $mod+p exec --no-startup-id flameshot gui
