@@ -37,9 +37,9 @@ mkdir -p ~/.vim/pack/coc/start
 cd ~/.vim/pack/coc/start
 git clone --branch release https://github.com/neoclide/coc.nvim.git --depth=1
 
-vim -c "CocInstall coc-snippets coc-pairs coc-lists coc-explorer coc-diagnostic coc-webview coc-markdown-preview-enhanced coc-yank coc-spell-checker coc-prettier coc-tasks"
+vim -c "CocInstall coc-snippets coc-pairs coc-lists coc-explorer coc-diagnostic coc-yank coc-spell-checker" -c "q"
 
-vim -c "CocInstall coc-sh coc-css coc-html coc-json coc-tsserver coc-markdownlint coc-pyright coc-clangd coc-angular coc-go coc-yaml coc-cmake coc-graphql coc-texlab"
+vim -c "CocInstall coc-sh coc-css coc-html coc-json coc-tsserver coc-markdownlint coc-pyright coc-clangd coc-yaml coc-cmake" -c "q"
 
 # nerdcommenter
 mkdir -p ~/.vim/pack/tool/start

@@ -1,14 +1,9 @@
 #  QQMail (FoxMail)
-poll imap.qq.com protocol IMAP user "392499367@qq.com" password {{ keyring "QQMail" "shejialuo"| quote}} ssl
-mimedecode
-mda "/usr/bin/procmail -f %F -d %T"
-
-# XiDianMail
-poll mail.stu.xidian.edu.cn protocol IMAP user "shejialuo@stu.xidian.edu.cn" password {{ keyring "XiDianMail" "shejialuo"| quote}} sslproto ""
+poll imap.qq.com protocol IMAP user "392499367@qq.com" password {{ keyring "QQMail" "shejialuo"| quote}} ssl keep
 mimedecode
 mda "/usr/bin/procmail -f %F -d %T"
 
 # GMail
-poll imap.gmail.com protocol IMAP user "shejialuo@gmail.com" password {{ keyring "GMail" "shejialuo" | quote}} ssl
+poll imap.gmail.com protocol IMAP user "shejialuo@gmail.com" password {{ keyring "GMail" "shejialuo" | quote}} ssl keep
 mimedecode
 mda "/usr/bin/procmail -f %F -d %T"

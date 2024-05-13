@@ -1,6 +1,8 @@
 set from = "shejialuo@gmail.com"
 set sendmail = "/usr/bin/msmtp -a GMail"
-set spoolfile = "$HOME/Mail/GMail/inbox" #INBOX
-set mbox="$HOME/Mail/GMail/seen"  #Seen box
-set record="$HOME/Mail/GMail/sent"  #Sent box
-set postponed="$HOME/Mail/GMail/draft"  #Draft box
+set spoolfile="$HOME/Mail/GMail/inbox"
+set mbox="$HOME/Mail/GMail/seen"
+set record="$HOME/Mail/GMail/sent"
+set postponed="$HOME/Mail/GMail/draft"
+
+# vim: ft=muttrc:

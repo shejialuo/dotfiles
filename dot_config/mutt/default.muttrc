@@ -1,0 +1,39 @@
+# The default directory to save attach_save_dirachments from the "attachment" menu.
+set attach_save_dir = ~/.config/mutt/attachments
+
+# When this variable is set, mutt will beep when an error occurs.
+set beep = no
+
+# Character set your terminal uses to display and enter textual data
+set charset = "utf-8"
+
+# This option allows you to edit the header of your outgoing messages along with
+# the body of your message.
+set edit_headers=yes
+
+# This variable specifies which editor is used by mutt.
+set editor="vim"
+
+# Controls whether or not a copy of the messages you are replying to is
+# included in your reply.
+set include = yes
+
+# When set, mutt will set the envelope sender of the message.
+set use_envelope_from = yes
+
+# This variable specifies what real name should be used when
+# sending messages.
+set realname="shejialuo"
+
+# Specifies how to sort messages in the "index" menu
+set sort = threads
+
+# Controls whether or not Mutt will move read messages from your spool mailbox to your
+# $mbox mailbox
+set move = yes
+
+# Set w3m to view html content
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# vim: ft=muttrc:

@@ -1,6 +1,0 @@
-set from = "shejialuo@stu.xidian.edu.cn"
-set sendmail = "/usr/bin/msmtp -a XiDianMail"
-set spoolfile = "$HOME/Mail/XiDianMail/inbox" #INBOX
-set mbox="$HOME/Mail/XiDianMail/seen"  #Seen box
-set record="$HOME/Mail/XiDianMail/sent"  #Sent box
-set postponed="$HOME/Mail/XiDianMail/draft"  #Draft box

@@ -68,6 +68,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # To start greenclip daemon
 exec --no-startup-id greenclip daemon
 
+# To start flameshot daemon
+exec_always --no-startup-id flameshot
+
 ###########################################################
 ####                      End                          ####
 ###########################################################
@@ -343,11 +346,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 ####                 Container  decorations            ####
 ###########################################################
 
-client.focused          #333333 #333333 #FFFFFF #333333
-client.focused_inactive #999999 #999999 #FFFFFF #3399FF
-client.unfocused        #999999 #999999 #FFFFFF #3399FF
-client.urgent           #990000 #990000 #FFFFFF #990000
-client.placeholder      #000000 #000000 #FFFFFF #000000
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4 #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36 #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555 #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36 #282A36
 client.background       #FFFFFF
 
 ###########################################################

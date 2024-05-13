@@ -19,8 +19,10 @@
     horizontal_padding = 6
     text_icon_padding = 0
     frame_width = 0
-    separator_color = auto
+    frame_color = "#282a36"
+    separator_color = frame
     sort = yes
+    idle_threshold = 120
     font = Fira Code 12
     line_height = 0
     markup = full
@@ -40,38 +42,34 @@
     sticky_history = yes
     history_length = 20
     dmenu = /usr/bin/env rofi -dmenu -p 'dunst:'
-    browser = /usr/bin/microsoft-edge-dev
+    browser = /usr/bin/microsoft-edge-stable
     always_run_script = true
     title = Dunst
     class = Dunst
     corner_radius = 0
     ignore_dbusclose = false
     force_xwayland = false
-    force_xinerama = false
     mouse_left_click = do_action
-    mouse_middle_click = close_all
+    mouse_middle_click = close all
     mouse_right_click = close_current
+
 [experimental]
     per_monitor_dpi = false
+
 [urgency_low]
-    background = "#faffff"
-    foreground = "#002b36"
-    frame_color = "#f5ffffaa"
+    background = "#282a36"
+    foreground = "#6272a4"
     timeout = 10
+
 [urgency_normal]
-    background = "#f7fff7"
-    foreground = "#002b36"
-    frame_color = "#f2fff2aa"
+    background = "#282a36"
+    foreground = "#bd93f9"
     timeout = 10
+
 [urgency_critical]
-    background = "#fff2f2"
-    foreground = "#002b36"
-    frame_color = "#fcebebaa"
+    background = "#ff5555"
+    foreground = "#f8f8f2"
+    frame_color = "#ff5555"
     timeout = 0
-[notify-send]
-    appname = notify-send
-    format = "%s\n%b"
-[evolution-mail-notification]
-    appname = evolution-mail-notification
-    format = "<b>%s</b>\n%b"
-    timeout = 0
+
+# vim: ft=cfg

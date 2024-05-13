@@ -1,0 +1,55 @@
+# Navigation
+# ----------------------------------------------------
+
+bind generic             z         noop
+bind index,pager,attach  g         noop
+bind index,pager         d         noop
+bind index,pager         s         noop
+bind index,pager         c         noop
+bind generic,pager       t         noop
+
+bind generic,index,pager \Cf       next-page
+bind generic,index,pager \Cb       previous-page
+bind generic,index       gg        first-entry
+bind generic,index       G         last-entry
+bind pager               gg        top
+bind pager               G         bottom
+bind pager               k         previous-line
+bind pager               j         next-line
+bind generic,index,pager \Cd       half-down
+bind generic,index,pager \Cu       half-up
+bind generic             zt        current-top
+bind generic             zz        current-middle
+bind generic             zb        current-bottom
+bind index               za        collapse-thread
+bind index               zA        collapse-all
+bind index,pager         N         search-opposite
+bind index               <Backtab> previous-new-then-unread
+
+# Go to folder...
+macro index,pager fgi "<change-folder>=GMail/inbox<enter>"
+macro index,pager fgd "<change-folder>=GMail/draft<enter>"
+macro index,pager fga "<change-folder>=GMail/seen<enter>"
+macro index,pager fgs "<change-folder>=GMail/sent<enter>"
+macro index,pager fqi "<change-folder>=QQMail/inbox<enter>"
+macro index,pager fqd "<change-folder>=QQMail/draft<enter>"
+macro index,pager fqa "<change-folder>=QQMail/seen<enter>"
+macro index,pager fqs "<change-folder>=QQMail/sent<enter>"
+macro index,pager fi  "<change-folder>=inbox<enter>"
+macro index,pager ff  "<change-folder>?"
+
+# Actions
+# ----------------------------------------------------
+
+bind  index,pager    a   group-reply
+macro index,pager    dd  "<delete-message><sync-mailbox>"
+macro index,pager    dat "<delete-thread><sync-mailbox>"
+macro index,pager    I   "<shell-escape> proxychains4 fetchmail <enter>"
+
+# Command Line
+# ----------------------------------------------------
+
+bind editor \Cp history-up
+bind editor \Cn history-down
+
+# vim: ft=muttrc:

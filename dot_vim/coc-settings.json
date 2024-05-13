@@ -8,17 +8,42 @@
     },
   },
 
-  // coc
-  "coc.preferences.formatOnSaveFiletypes": ["go"],
-
-  // coc-angular
-  "angular.trace.server": "off",
-  "angular.log": "off",
-  "angular.view-engine": false,
-  "angular.suggest.includeCompletionsWithSnippetText": true,
-  "angular.enable-strict-mode-prompt": true,
-
-  // coc-go
-  "go.goplsPath": "/home/shejialuo/Tool/go/bin/gopls",
+  "cSpell.enabledLanguageIds": [
+    "vim",
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "gitcommit",
+    "go",
+    "handlebars",
+    "haskell",
+    "html",
+    "jade",
+    "java",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "latex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "python",
+    "pug",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "yml",
+    "mail"
+  ]
 
 }
