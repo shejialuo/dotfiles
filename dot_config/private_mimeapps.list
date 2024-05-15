@@ -1,0 +1,43 @@
+# Default application settings for user
+# Refer to the /user/share/mimeinfo.cache
+
+[Default Applications]
+
+# application
+application/epub+zip=calibre-ebook-viewer.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=wps-office-wps.desktop;
+
+# image
+image/gif=viewnior.desktop;
+image/jepg=viewnior.desktop;
+image/jpg=viewnior.desktop;
+image/pjpeg=viewnior.desktop;
+image/png=viewnior.desktop;
+
+# text
+text/html=microsoft-edge.desktop;
+text/english=vim.desktop;
+text/plain=vim.desktop;
+text/x-java=vim.desktop;
+text/x-makefile=vim.desktop;
+text/x-moc=vim.desktop;
+text/x-pascal=vim.desktop;
+text/x-c=vim.desktop;
+text/x-c++=vim.desktop;
+text/x-c++hdr=vim.desktop;
+text/x-c++src=vim.desktop;
+text/x-chdr=vim.desktop;
+text/x-csrc=vim.desktop;
+text/x-tcl=vim.desktop;
+text/x-tex=vim.desktop;
+
+# x-scheme-handler
+
+x-scheme-handler/http=microsoft-edge.desktop
+x-scheme-handler/https=microsoft-edge.desktop
+
+# directory, do not use ranger
+
+inode/directory=pcmanfm.desktop
+

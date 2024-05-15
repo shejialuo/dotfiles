@@ -27,16 +27,16 @@ bind index,pager         N         search-opposite
 bind index               <Backtab> previous-new-then-unread
 
 # Go to folder...
-macro index,pager fgi "<change-folder>=GMail/inbox<enter>"
-macro index,pager fgd "<change-folder>=GMail/draft<enter>"
-macro index,pager fga "<change-folder>=GMail/seen<enter>"
-macro index,pager fgs "<change-folder>=GMail/sent<enter>"
-macro index,pager fqi "<change-folder>=QQMail/inbox<enter>"
-macro index,pager fqd "<change-folder>=QQMail/draft<enter>"
-macro index,pager fqa "<change-folder>=QQMail/seen<enter>"
-macro index,pager fqs "<change-folder>=QQMail/sent<enter>"
-macro index,pager fi  "<change-folder>=inbox<enter>"
-macro index,pager ff  "<change-folder>?"
+macro index,pager gi "<change-folder>=GMail/inbox<enter>"
+macro index,pager gd "<change-folder>=GMail/draft<enter>"
+macro index,pager ga "<change-folder>=GMail/seen<enter>"
+macro index,pager gs "<change-folder>=GMail/sent<enter>"
+macro index,pager gqi "<change-folder>=QQMail/inbox<enter>"
+macro index,pager gqd "<change-folder>=QQMail/draft<enter>"
+macro index,pager gqa "<change-folder>=QQMail/seen<enter>"
+macro index,pager gqs "<change-folder>=QQMail/sent<enter>"
+macro index,pager gdi  "<change-folder>=inbox<enter>"
+macro index,pager gf  "<change-folder>?"
 
 # Actions
 # ----------------------------------------------------
