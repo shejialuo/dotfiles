@@ -28,7 +28,7 @@ git pull origin master
 cd ~/.vim/pack/coc/start/coc.nvim
 git pull origin release
 
-vim -c "CocUpdate"
+vim -c "CocUpdate" -c "q"
 
 # nerdcommenter
 cd ~/.vim/pack/tool/start/nerdcommenter
@@ -41,4 +41,3 @@ git pull origin master
 # vim-polyglot
 cd ~/.vim/pack/tool/start/vim-polyglot
 git pull origin master
-
