@@ -5,14 +5,16 @@ set fileencoding=utf-8
 set termencoding=utf-8
 set encoding=utf-8
 
+" To set the tab
+set tabstop=8
+set shiftwidth=4
+set softtabstop=4
+
 " To set the tab to space
 set expandtab
 
-" To set the tab stop to 2
-set ts=2
-
 " To set the indent same
-set autoindent
+" set autoindent
 
 " To apply the vim's operation
 set nocompatible
@@ -40,6 +42,7 @@ set noshowmode
 
 " To set no backup
 set nobackup
+set nowritebackup
 
 " To set the tab and space display
 set listchars=tab:>-,trail:-
@@ -51,9 +54,36 @@ set cmdheight=2
 
 set updatetime=300
 
-set shiftwidth=2
+set signcolumn=yes
 
 set foldmethod=manual
+
+" disable mouse
+set mouse=
+
+filetype plugin on
+syntax on
+
+" Reload unchanged files automatically
+set autoread
+set shortmess+=A
+
+" Avoids swapfiles in current directory
+if &directory =~# '^\.,'
+  if !empty($HOME)
+    if has('win32')
+      let &directory = expand('$HOME/vimfiles') . '//,' . &directory
+    else
+      let &directory = expand('$HOME/.vim') . '//,' . &directory
+    endif
+  endif
+  if !empty($XDG_DATA_HOME)
+    let &directory = expand('$XDG_DATA_HOME') . '//,' . &directory
+  endif
+  if has('macunix')
+    let &directory = expand('$HOME/Library/Autosave Information') . '//,' . &directory
+  endif
+endif
 
 " To change the leader to space.
 let g:mapleader = "\<Space>"
@@ -74,19 +104,53 @@ noremap <leader>0 :tablast<cr>
 
 """ End
 
+""" sheerun/vim-polyglot
 
+" We need to set it before loading the plugin
+let g:polyglot_disabled = ["sensible"]
 
-""" Dracula Theme
+""" End
 
-packadd!dracula
-syntax enable
+""" Plugin Manager
+
+call plug#begin()
+
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline'
+Plug 'sheerun/vim-polyglot'
+Plug 'preservim/nerdcommenter'
+Plug 'airblade/vim-gitgutter'
+Plug 'wakatime/vim-wakatime'
+Plug 'liuchengxu/vim-which-key'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'editorconfig/editorconfig-vim'
+
+call plug#end()
+
+""" End
+
+""" drcualr/vim
+
 colorscheme dracula
 
 """ End
 
+""" airblade/vim-gitgutter
 
+nmap hj <Plug>(GitGutterNextHunk)
+nmap hk <Plug>(GitGutterPrevHunk)
+nmap hs <Plug>(GitGutterStageHunk)
+nmap hu <Plug>(GitGutterUndoHunk)
 
-""" vim-which-key
+""" End
+
+""" preservim/nerdcommenter
+
+let g:NERDSpaceDelims = 1
+
+""" End
+
+""" liuchengxu/vim-which-key
 
 let g:which_key_map = {}
 let g:which_key_map.1 = 'which_key_ignore'
@@ -99,44 +163,20 @@ let g:which_key_map.7 = 'which_key_ignore'
 let g:which_key_map.8 = 'which_key_ignore'
 let g:which_key_map.9 = 'which_key_ignore'
 let g:which_key_map.0 = 'which_key_ignore'
-
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-
-" To register the dictionary
 call which_key#register('<Space>', "g:which_key_map")
+
+let g:which_key_map_h = {}
+nnoremap <silent> h :<c-u>WhichKey 'h'<CR>
+call which_key#register('h', "g:which_key_map_h")
 
 """ End
 
+""" neoclide/coc.nvim
 
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-""" coc
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> <F2> <Plug>(coc-refactor)
-
-
-" Use <cr> to confirm completion
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <cr> coc#pum#visible() && coc#pum#info()['index'] != -1 ? coc#pum#confirm() : "\<C-g>u\<CR>"
-
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <Down>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-
-" Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
@@ -147,7 +187,28 @@ function! ShowDocumentation()
   endif
 endfunction
 
-" Multiple cursor support
+nmap <silent><nowait> gd <Plug>(coc-definition)
+nmap <silent><nowait> gy <Plug>(coc-type-definition)
+nmap <silent><nowait> gi <Plug>(coc-implementation)
+nmap <silent><nowait> gr <Plug>(coc-references)
+nmap <silent> <F2> <Plug>(coc-refactor)
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>ac <Plug>(coc-codeaction)
+
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
 nnoremap <C-c> <Plug>(coc-cursors-position)
 
 nmap <expr> <silent> <C-d> <SID>select_current_word()
@@ -158,98 +219,19 @@ function! s:select_current_word()
   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 endfunc
 
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
-""" End
-
-
-
-""" NERD Commenter
-
-filetype plugin on
-let g:NERDSpaceDelims = 1
-let g:NERDCommentEmptyLines = 1
-
-""" End
-
-
-
-""" vim-gitgutter
-
-nmap <Leader>hj <Plug>(GitGutterNextHunk)
-nmap <Leader>hk <Plug>(GitGutterPrevHunk)
-nmap <Leader>hs <Plug>(GitGutterStageHunk)
-nmap <Leader>hu <Plug>(GitGutterUndoHunk)
-
-""" End
-
-
-
-""" coc-yank
-
-nnoremap <silent> <Leader>ly : CocList yank<CR>
-nnoremap <silent> <Leader>eyc : CocCommand yank.clean<CR>
-
-""" End
-
-
-
-""" coc-explorer
+let g:coc_snippet_next = '<tab>'
 
 nnoremap <Leader>r :CocCommand explorer<CR>
 
-""" End
-
-
-
-""" coc-markdown-lint
-
-nnoremap <silent> <leader>mf :CocCommand markdownlint.fixAll<CR>
-
-""" End
-
-
-
-""" coc-action
-
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>ac <Plug>(coc-codeaction)
-
-
-""" End
-
-
-
-""" coc-snippets
-
-let g:coc_snippet_next = '<tab>'
-
-""" End
-
-
-
-""" coc-lists
+nnoremap <silent> <Leader>eyc : CocCommand yank.clean<CR>
 
 nnoremap <silent> <Leader>ls : CocList symbols<CR>
-nnoremap <silent> <Leader>le : CocList diagnostics<CR>
+nnoremap <silent> <Leader>le : CocList extensions<CR>
+nnoremap <silent> <Leader>ld : CocList diagnostics<CR>
 nnoremap <silent> <Leader>lc : CocList changes<CR>
 nnoremap <silent> <Leader>lo : CocList outline<CR>
-nnoremap <silent> <Leader>lt : CocList tags<CR>
-nnoremap <silent> <Leader>lf : CocList quickfix<CR>
 nnoremap <silent> <Leader>lm : CocList marks<CR>
-nnoremap <silent> <Leader>ll : CocList files<CR>
-nnoremap <silent> <Leader>lj : CocNext<CR>
-nnoremap <silent> <Leader>lk : CocPrev<CR>
+nnoremap <silent> <Leader>lf : CocList files<CR>
 nnoremap <silent> <Leader>lb : CocList buffers<CR>
 
 """ End
-
