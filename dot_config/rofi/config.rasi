@@ -5,12 +5,12 @@ configuration {
     ssh-client: "kitty +kitten ssh";
     ssh-command: "kitty -e {ssh-client} {host}";
     show-icons: true;
-    dpi: 144;
+    dpi: 192;
 }
 
 * {
     columns: 1;
-    font: "SF Pro Display 10";
+    font: "SF Pro Display 11";
     foreground: #e1e1e1;
     background-for-window: #f2eeed50;
     background-for-base: #e9e9e900;
