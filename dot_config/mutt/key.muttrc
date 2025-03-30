@@ -31,12 +31,9 @@ macro index,pager gi "<change-folder>=GMail/inbox<enter>"
 macro index,pager gd "<change-folder>=GMail/draft<enter>"
 macro index,pager ga "<change-folder>=GMail/seen<enter>"
 macro index,pager gs "<change-folder>=GMail/sent<enter>"
-macro index,pager gqi "<change-folder>=QQMail/inbox<enter>"
-macro index,pager gqd "<change-folder>=QQMail/draft<enter>"
-macro index,pager gqa "<change-folder>=QQMail/seen<enter>"
-macro index,pager gqs "<change-folder>=QQMail/sent<enter>"
-macro index,pager gdi  "<change-folder>=inbox<enter>"
-macro index,pager gf  "<change-folder>?"
+macro index,pager gmg "<change-folder>=GMail/mailing_list/git<enter>"
+macro index,pager gt  "<change-folder>=spam<enter>"
+macro index,pager gc  "<change-folder>?"
 
 # Actions
 # ----------------------------------------------------

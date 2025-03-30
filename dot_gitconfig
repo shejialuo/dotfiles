@@ -4,7 +4,7 @@
 [core]
   editor = vim
 [credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+  helper = 
+  helper = !/usr/bin/gh auth git-credential
 [http "https://github.com"]
-	proxy = socks5://127.0.0.1:7891
+  proxy = socks5://127.0.0.1:7891
