@@ -3,16 +3,46 @@ VERBOSE=off
 LOGFILE=/tmp/procmaillog
 
 :0
-* ^TO*392499367@qq.com*
-Mail/QQMail/inbox
+* ^TO392499367@qq\.com
+Mail/QQMail/inbox/
 
 :0
-* ^TO*shejialuo@foxmail.com*
-Mail/QQMail/inbox
+* ^TOshejialuo@foxmail\.com
+Mail/QQMail/inbox/
+
+:0
+* ^(To|Cc):.*git@vger\.kernel\.org
+* ^TOshejialuo@gmail\.com
+Mail/GMail/mailing_list/git/
+
+:0
+* ^From:.*@google\.com
+* ^TOshejialuo@gmail\.com
+Mail/GMail/information/google/
+
+:0
+* ^From:.*@apple\.com
+* ^TOshejialuo@gmail\.com
+Mail/GMail/information/apple/
+
+:0
+* ^From:.*@github\.com
+* ^TOshejialuo@gmail\.com
+Mail/GMail/information/github/
+
+:0
+* ^From:.*@wakatime\.com
+* ^TOshejialuo@gmail\.com
+Mail/GMail/information/wakatime/
+
+:0
+* ^From:.*@wakatime\.com
+* ^TOshejialuo@gmail\.com
+Mail/GMail/information/steam/
 
 :0
 * ^TO*shejialuo@gmail.com*
-Mail/GMail/inbox
+Mail/GMail/inbox/
 
 :0：
-Mail/inbox
+Mail/spam

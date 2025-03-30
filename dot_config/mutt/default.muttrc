@@ -1,3 +1,6 @@
+# Use directory by default instead of a single file
+set mbox_type=Maildir
+
 # The default directory to save attach_save_dirachments from the "attachment" menu.
 set attach_save_dir = ~/.config/mutt/attachments
 
@@ -35,5 +38,6 @@ set move = yes
 # Set w3m to view html content
 auto_view text/html
 alternative_order text/plain text/enriched text/html
+
 
 # vim: ft=muttrc:
