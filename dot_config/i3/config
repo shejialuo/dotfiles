@@ -54,7 +54,7 @@ exec --no-startup-id pa-applet
 exec --no-startup-id ~/.screenlayout/high.sh
 
 # To autostart wallpaper manager
-exec --no-startup-id nitrogen --restore; sleep 1;
+exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.png; sleep 1;
 
 # To autostart picom to achieve traspanrency
 exec --no-startup-id picom -b
@@ -91,7 +91,7 @@ bindsym $mod+F2 exec --no-startup-id microsoft-edge-stable
 bindsym $mod+F3 exec --no-startup-id pcmanfm
 
 # To launch spotify
-bindsym $mod+F4 exec --no-startup-id spotify-tray -- --force-device-scale-factor=1.5
+bindsym $mod+F4 exec --no-startup-id spotify-tray
 
 # To launch kitty terminal simulator
 bindsym $mod+Return exec --no-startup-id kitty
@@ -103,7 +103,7 @@ bindsym $mod+p exec --no-startup-id flameshot gui
 bindsym $mod+Shift+q kill
 
 # To use i3lock
-bindsym $mod+l exec --no-startup-id i3lock -e -f
+bindsym $mod+l exec --no-startup-id i3lock -e -f -i ~/Pictures/lock.png
 
 # To start application launcher
 bindsym $mod+d exec --no-startup-id rofi -show drun
@@ -370,13 +370,13 @@ gaps outer 6
 ###########################################################
 
 
-###########################################################
-####     Start applications on specific workspaces     ####
-###########################################################
-
-# to move vscode to workspace 3
-assign [class="^Code$"] $ws3
 
 ###########################################################
-####                      End                          ####
+####                 Window rules                      ####
+###########################################################
+
+for_window [instance="goldendict" title="Dialog"] floating enable
+
+###########################################################
+####                    End                            ####
 ###########################################################
