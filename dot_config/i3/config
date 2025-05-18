@@ -375,7 +375,7 @@ gaps outer 6
 ####                 Window rules                      ####
 ###########################################################
 
-for_window [instance="goldendict" title="Dialog"] floating enable
+for_window [instance="goldendict"] floating enable, sticky enable
 
 ###########################################################
 ####                    End                            ####
