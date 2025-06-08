@@ -1,11 +1,9 @@
-README.md
-
 {{- if eq .chezmoi.hostname "ArchLinux"}}
-.aerospace.toml
+sketchybar
 {{- end}}
+
 
 {{- if eq .chezmoi.hostname "mbp"}}
 *
-!.config/
-!.aerospace.toml
+!sketchybar/
 {{- end}}

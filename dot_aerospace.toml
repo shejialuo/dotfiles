@@ -1,0 +1,101 @@
+# Run Sketchybar together with AeroSpace
+# sketchbar has a built-in detection of already running process,
+# so it won't be run twice on AeroSpace restart
+after-startup-command = ['exec-and-forget sketchybar']
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE'
+]
+
+start-at-login = true
+
+# i3 doesn't have "normalizations" feature that why we disable them here.
+# But the feature is very helpful.
+# Normalizations eliminate all sorts of weird tree configurations that don't make sense.
+# Give normalizations a chance and enable them back.
+enable-normalization-flatten-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = false
+
+# Mouse follows focus when focused monitor changes
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[mode.main.binding]
+    alt-enter = 'exec-and-forget open -na Kitty --args "--single-instance" -d "~"'
+
+    alt-f2 = 'exec-and-forget open -na "Microsoft Edge"'
+    alt-f3 = 'exec-and-forget open -na Finder'
+    alt-f4 = 'exec-and-forget open -na Spotify'
+
+    alt-shift-q = 'close'
+
+    alt-left = 'focus --boundaries-action wrap-around-the-workspace left'
+    alt-right = 'focus --boundaries-action wrap-around-the-workspace right'
+    alt-down = 'focus --boundaries-action wrap-around-the-workspace down'
+    alt-up = 'focus --boundaries-action wrap-around-the-workspace up'
+
+    alt-shift-left = 'move left'
+    alt-shift-right = 'move right'
+    alt-shift-down = 'move down'
+    alt-shift-up = 'move up'
+
+    alt-h = 'split horizontal'
+    alt-v = 'split vertical'
+
+    alt-f = 'fullscreen'
+
+    alt-s = 'layout v_accordion'
+    alt-w = 'layout h_accordion'
+    alt-e = 'layout tiles horizontal vertical'
+
+    alt-shift-space = 'layout floating tiling'
+
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+
+    # It is different with i3.
+    alt-tab = "workspace-back-and-forth"
+
+    alt-ctrl-1 = 'move-node-to-workspace 1'
+    alt-ctrl-2 = 'move-node-to-workspace 2'
+    alt-ctrl-3 = 'move-node-to-workspace 3'
+    alt-ctrl-4 = 'move-node-to-workspace 4'
+    alt-ctrl-5 = 'move-node-to-workspace 5'
+    alt-ctrl-6 = 'move-node-to-workspace 6'
+    alt-ctrl-7 = 'move-node-to-workspace 7'
+    alt-ctrl-8 = 'move-node-to-workspace 8'
+
+    alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+    alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+    alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+    alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+    alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+    alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
+    alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
+    alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
+
+    alt-shift-c = 'reload-config'
+
+    alt-r = 'mode resize'
+
+[mode.resize.binding]
+    h = 'resize width -50'
+    j = 'resize height +50'
+    k = 'resize height -50'
+    l = 'resize width +50'
+    enter = 'mode main'
+    esc = 'mode main'
+
+[gaps]
+    inner.horizontal = 8
+    inner.vertical = 8
+    outer.left = 10
+    outer.bottom = 12
+    outer.top = 12
+    outer.right = 10
