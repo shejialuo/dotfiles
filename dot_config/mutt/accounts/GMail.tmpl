@@ -1,7 +1,7 @@
 set from = "shejialuo@gmail.com"
 {{- if eq .chezmoi.hostname "ArchLinux" }}
 set sendmail = "/usr/bin/msmtp -a GMail"
-{{- else if eq .chezmoi.hostname "mbp" }}
+{{ else if eq .chezmoi.hostname "mbp" }}
 set sendmail = "/opt/homebrew/bin/msmtp -a GMail"
 {{ end -}}
 set spoolfile="$HOME/Mail/GMail/inbox"
