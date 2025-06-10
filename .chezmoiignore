@@ -11,4 +11,5 @@ README.md
 !.profile
 !.procmailrc
 !.mailcap
+!.zshrc
 {{ end -}}
