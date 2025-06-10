@@ -1,5 +1,9 @@
 set from = "392499367@qq.com"
+{{- if eq .chezmoi.hostname "ArchLinux" }}
 set sendmail = "/usr/bin/msmtp -a QQMail"
+{{- else if eq .chezmoi.hostname "mbp" }}
+set sendmail = "/opt/homebrew/bin/msmtp -a QQMail"
+{{ end -}}
 set spoolfile = "$HOME/Mail/QQMail/inbox"
 set mbox="$HOME/Mail/QQMail/seen"
 set record="$HOME/Mail/QQMail/sent"
