@@ -1,7 +1,8 @@
 {{ if eq .chezmoi.hostname "ArchLinux" -}}
-export ZSH="/home/shejialuo/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="vim"
 ZSH_THEME="agnoster"
+
 plugins=(git copyfile copypath zsh-autosuggestions web-search autojump zsh-syntax-highlighting zsh-history-substring-search)
 source $ZSH/oh-my-zsh.sh
 alias pc="proxychains4"
