@@ -11,4 +11,5 @@ README.md
 !.vimrc
 !.vim/
 !.tmux.conf
+!.profile
 {{- end}}
