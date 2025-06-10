@@ -8,4 +8,6 @@ README.md
 *
 !.config/
 !.aerospace.toml
+!.vimrc
+!.vim/
 {{- end}}
