@@ -10,4 +10,5 @@ README.md
 !.tmux.conf
 !.profile
 !.procmailrc
+!.mailcap
 {{ end -}}
