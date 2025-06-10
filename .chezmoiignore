@@ -10,4 +10,5 @@ README.md
 !.aerospace.toml
 !.vimrc
 !.vim/
+!.tmux.conf
 {{- end}}
