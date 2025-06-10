@@ -1,10 +1,7 @@
 README.md
-
 {{- if eq .chezmoi.hostname "ArchLinux" }}
 .aerospace.toml
-{{- end}}
-
-{{- if eq .chezmoi.hostname "mbp" }}
+{{ else if eq .chezmoi.hostname "mbp" }}
 *
 !.config/
 !.aerospace.toml
@@ -13,4 +10,4 @@ README.md
 !.tmux.conf
 !.profile
 !.procmailrc
-{{- end}}
+{{ end -}}

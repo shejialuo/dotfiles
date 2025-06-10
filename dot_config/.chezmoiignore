@@ -1,9 +1,7 @@
 {{- if eq .chezmoi.hostname "ArchLinux" }}
 sketchybar
-{{- end}}
-
-{{- if eq .chezmoi.hostname "mbp" }}
+{{ else if eq .chezmoi.hostname "mbp" -}}
 *
 !sketchybar/
 !mutt/
-{{- end}}
+{{ end -}}
