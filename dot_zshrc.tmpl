@@ -26,6 +26,7 @@ export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
 export GROFF_NO_SGR=1                   # for konsole
 {{ else if eq .chezmoi.hostname "mbp" -}}
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="vim"
 ZSH_THEME="dracula"
 
 plugins=(git gnu-utils copyfile copypath autojump zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search web-search)
