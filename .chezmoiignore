@@ -12,4 +12,5 @@ README.md
 !.vim/
 !.tmux.conf
 !.profile
+!.procmailrc
 {{- end}}
