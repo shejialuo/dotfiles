@@ -5,7 +5,7 @@ account QQMail
     port 587
     from 392499367@qq.com
     user 392499367@qq.com
-    password {{ keyring "QQMail" "shejialuo" | quote }}
+    password {{ (keepassxc "Mails/QQ").Password | quote }}
     tls on
     tls_certcheck off
 
@@ -16,7 +16,7 @@ account GMail
     port 587
     from shejialuo@gmail.com
     user shejialuo@gmail.com
-    password {{ keyring "GMail" "shejialuo"| quote }}
+    password {{ (keepassxc "Mails/GMail").Password | quote }}
     tls on
     tls_certcheck on
 
