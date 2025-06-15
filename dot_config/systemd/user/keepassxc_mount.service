@@ -1,0 +1,19 @@
+[Unit]
+Description=Keepassxc webdav
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount keepassxc: /home/shejialuo/Network/keepassxc \
+    --config=/home/shejialuo/.config/rclone/rclone.conf \
+    --cache-dir=/home/shejialuo/.cache/rclone/vfs \
+    --vfs-cache-mode=full \
+    --vfs-read-chunk-streams=8 \
+    --vfs-read-chunk-size=16M
+ExecStop=/usr/bin/fusermount -u /home/shejialuo/Network/keepassxc
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
