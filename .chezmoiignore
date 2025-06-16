@@ -9,7 +9,9 @@ README.md
 !.vim/
 !.tmux.conf
 !.profile
+!.fetchmailrc
 !.procmailrc
+!.msmtprc
 !.mailcap
 !.zshrc
 {{ end -}}

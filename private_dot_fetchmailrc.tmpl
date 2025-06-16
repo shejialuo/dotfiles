@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.hostname "ArchLinux" -}}
 #  QQMail (FoxMail)
 poll imap.qq.com protocol IMAP user "392499367@qq.com" password {{ (keepassxc "Mails/QQ").Password | quote }} ssl keep
 mimedecode
@@ -7,3 +8,14 @@ mda "/usr/bin/procmail -f %F -d %T"
 poll imap.gmail.com protocol IMAP user "shejialuo@gmail.com" password {{ (keepassxc "Mails/GMail").Password | quote }} ssl keep
 mimedecode
 mda "/usr/bin/procmail -f %F -d %T"
+{{ else if eq .chezmoi.hostname "mbp" -}}
+#  QQMail (FoxMail)
+poll imap.qq.com protocol IMAP user "392499367@qq.com" password {{ (keepassxc "Mails/QQ").Password | quote }} ssl keep
+mimedecode
+mda "/opt/homebrew/bin/procmail -f %F -d %T"
+
+# GMail
+poll imap.gmail.com protocol IMAP user "shejialuo@gmail.com" password {{ (keepassxc "Mails/GMail").Password | quote }} ssl keep
+mimedecode
+mda "/opt/homebrew/bin/procmail -f %F -d %T"
+{{ end -}}
