@@ -4,8 +4,6 @@ After=network.target NetworkManager.service systemd-networkd.service iwd.service
 
 [Service]
 Type=simple
-LimitNPROC=500
-LimitNOFILE=1000000
 Restart=always
 RestartSec=5
 ExecStart=/usr/bin/clash -d /home/shejialuo/.config/clash
