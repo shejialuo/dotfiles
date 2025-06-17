@@ -1,10 +1,10 @@
 # dotfiles
 
-This is the dotfiles manged by `chezmoi` for my ArchLinux i3wm.
+This is the dotfiles manged by `chezmoi` for my all operate systems.
 
 ## Detail
 
 + of course manged by `chezmoi`
-+ secrets stored with `gnome-kerying`
++ secrets stored with `keepassxc`
 
-If you want to see how I configure my ArchLinux i3wm, you can go to my [OS-Configuration](https://github.com/shejialuo/OS-Configuration).
+If you want to see how I configure my OS, you can go to my [OS-Configuration](https://github.com/shejialuo/OS-Configuration).
