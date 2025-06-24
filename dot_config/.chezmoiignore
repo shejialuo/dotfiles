@@ -5,4 +5,5 @@ sketchybar
 !sketchybar/
 !mutt/
 !zathura/
+!yazi/
 {{ end -}}
