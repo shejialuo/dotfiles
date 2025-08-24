@@ -71,6 +71,9 @@ exec --no-startup-id greenclip daemon
 # To start flameshot daemon
 exec_always --no-startup-id flameshot
 
+# To start snixembed for SNI protoctol
+exec --no-startup-id snixembed --fork
+
 ###########################################################
 ####                      End                          ####
 ###########################################################
