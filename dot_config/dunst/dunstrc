@@ -1,75 +1,92 @@
 [global]
-    monitor = 0
-    follow = mouse
-    width = 300
-    height = (0, 300)
-    origin = top-right
-    offset = (15, 35)
-    scale = 0
-    notification_limit = 0
-    progress_bar = true
-    progress_bar_height = 10
-    progress_bar_frame_width = 1
-    progress_bar_min_width = 150
-    progress_bar_max_width = 300
-    indicate_hidden = yes
-    transparency = 0
-    separator_height = 2
-    padding = 6
-    horizontal_padding = 6
-    text_icon_padding = 0
-    frame_width = 0
-    frame_color = "#282a36"
-    separator_color = frame
-    sort = yes
-    idle_threshold = 120
-    font = Fira Code 12
-    line_height = 0
-    markup = full
-    format = "%a: %s\n%b"
-    alignment = center
-    vertical_alignment = center
-    show_age_threshold = 60
-    ellipsize = middle
-    ignore_newline = no
-    stack_duplicates = true
-    hide_duplicate_count = false
-    show_indicators = yes
-    icon_position = left
-    min_icon_size = 0
-    max_icon_size = 32
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/usr/share/icons/Adwaita/16x16/mimetypes/:/usr/share/icons/Adwaita/48x48/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/48x48/notifications/:/usr/share/icons/Adwaita/48x48/emblems/
-    sticky_history = yes
-    history_length = 20
-    dmenu = /usr/bin/env rofi -dmenu -p 'dunst:'
-    browser = /usr/bin/microsoft-edge-stable
-    always_run_script = true
-    title = Dunst
-    class = Dunst
-    corner_radius = 0
-    ignore_dbusclose = false
-    force_xwayland = false
-    mouse_left_click = do_action
-    mouse_middle_click = close_all
-    mouse_right_click = close_current
+# Basic display settings
+monitor = 0
+follow = mouse
+width = 300
+height = (0, 300)
+origin = bottom-right
+offset = (15, 15)
+scale = 0
+transparency = 0
+corner_radius = 0
 
-[experimental]
-    per_monitor_dpi = false
+# Notifcation settings
+notification_limit = 10
+indicate_hidden = true
+idle_threshold = 2m
+show_age_threshold = 60
+sticky_history = true
+history_length = 20
+ignore_dbusclose = false
+sort = true
+stack_duplicates = true
+hide_duplicate_count = false
+
+# Frame settings
+frame_width = 3
+frame_color = "#89b4fa"
+
+# Separator settings
+separator_height = 2
+separator_color = frame
+
+# Progress bar settings
+progress_bar_corner_radius = 5
+
+# Padding settings
+padding = 6
+horizontal_padding = 6
+text_icon_padding = 0
+
+# Alignment settings
+alignment = left
+vertical_alignment = center
+
+# Notifcation content settings
+line_height = 0
+word_wrap = true
+ellipsize = end
+ignore_newline = false
+show_indicators = true
+icon_theme = "Papirus-Dark, breeze"
+enable_recursive_icon_lookup = true
+icon_position = left
+min_icon_size = 24
+max_icon_size = 128
+font = "Fira Code 12"
+markup = full
+format = "<b><u>%s</u></b><i>%p</i>\n%b\n"
+#format = "%a: %s\n%b"
+
+# Context/Action settings
+dmenu = /usr/bin/env rofi -dmenu -p 'dunst:'
+browser = /usr/bin/microsoft-edge-stable
+always_run_script = true
+mouse_left_click = close_current
+mouse_middle_click = do_action, close_current
+mouse_right_click = close_all
+
+# Window settings
+title = Dunst
+class = Dunst
+
+# Global theme settings
+highlight = "#89b4fa"
 
 [urgency_low]
-    background = "#282a36"
-    foreground = "#6272a4"
-    timeout = 10
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+timeout = 10
 
 [urgency_normal]
-    background = "#282a36"
-    foreground = "#bd93f9"
-    timeout = 10
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+timeout = 10
 
 [urgency_critical]
-    background = "#ff5555"
-    foreground = "#f8f8f2"
-    frame_color = "#ff5555"
-    timeout = 0
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
+timeout = 0
 
 # vim: ft=cfg
