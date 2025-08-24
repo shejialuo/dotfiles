@@ -44,12 +44,6 @@ font pango:sarasa 11
 ####               Autostart applications              ####
 ###########################################################
 
-# To autostart network manager tray
-exec --no-startup-id nm-applet
-
-# To autostart volume manager tray
-exec --no-startup-id pa-applet
-
 # To auto exec the script to fit HD
 exec --no-startup-id ~/.screenlayout/high.sh
 
