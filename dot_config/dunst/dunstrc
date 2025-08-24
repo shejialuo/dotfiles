@@ -73,6 +73,11 @@ class = Dunst
 # Global theme settings
 highlight = "#89b4fa"
 
+[i3_volume_control]
+    appname = "i3_volume_control"
+    history_ignore = yes
+    timeout = 2
+
 [urgency_low]
 background = "#1e1e2e"
 foreground = "#cdd6f4"
