@@ -117,6 +117,9 @@ bindsym $mod+x exec --no-startup-id dunstctl context
 # To do the notification close by dunstctl
 bindsym $mod+i exec --no-startup-id dunstctl close
 
+# To toggle the notification by dunstctl
+bindsym $mod+Shift+i exec --no-startup-id dunstctl set-paused toggle
+
 # To toggle the polybar
 bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
 
