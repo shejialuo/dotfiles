@@ -47,6 +47,9 @@ set $volume_control ~/.config/i3/volume_control.sh
 ####               Autostart applications              ####
 ###########################################################
 
+# To autostart network manager tray
+exec --no-startup-id nm-applet
+
 # To auto exec the script to fit HD
 exec --no-startup-id ~/.screenlayout/high.sh
 
