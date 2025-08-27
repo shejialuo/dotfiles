@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ALPHA="D9"
+ALPHA="d9"
 PFILE="$HOME/.config/polybar/colors.ini"
 WFILE="$HOME/.cache/wal/colors.sh"
 
@@ -37,8 +37,8 @@ if [[ -x "`which wal`" ]]; then
         fi
 
         BG=`printf "#%s%s\n" "$ALPHA" "${background#\#}"`
-        FG=`printf "#%s%s\n" "$ALPHA" "${foreground#\#}"`
-        FGA=`printf "#%s%s\n" "$ALPHA" "${color8#\#}"`
+        FG=`printf "%s\n" "$foreground"`
+        FGA=`printf "%s\n" "$color8"`
         SH1=`printf "#%s%s\n" "$ALPHA" "${color1#\#}"`
         SH2=`printf "#%s%s\n" "$ALPHA" "${color2#\#}"`
         SH3=`printf "#%s%s\n" "$ALPHA" "${color3#\#}"`
