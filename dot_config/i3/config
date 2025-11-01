@@ -111,6 +111,9 @@ bindsym $mod+l exec --no-startup-id i3lock -e -f -i ~/Pictures/lock.png
 # To start application launcher
 bindsym $mod+d exec --no-startup-id rofi -show drun
 
+# To start window manager
+bindsym $mod+o exec --no-startup-id rofi -show
+
 # To do the notification action by dunstctl
 bindsym $mod+z exec --no-startup-id dunstctl action
 
