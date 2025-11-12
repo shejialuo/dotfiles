@@ -5,5 +5,5 @@ SSID=$(system_profiler SPAirPortDataType | awk '/Current Network Information:/ {
 if [ "$SSID" = "" ]; then
     sketchybar --set $NAME icon="􀙈" label="Disconnected"
 else
-    sketchybar --set $NAME icon="􀙇" label="$SSID"
+    sketchybar --set $NAME icon="􀙇" label="Connected"
 fi
