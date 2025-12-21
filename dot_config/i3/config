@@ -74,6 +74,9 @@ exec_always --no-startup-id flameshot
 # To start snixembed for SNI protoctol
 exec --no-startup-id snixembed --fork
 
+# To auto start easyeffects
+exec --no-startup-id easyeffects --service-mode --hide-window
+
 ###########################################################
 ####                      End                          ####
 ###########################################################
