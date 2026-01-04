@@ -15,7 +15,7 @@ set charset = "utf-8"
 set edit_headers=yes
 
 # This variable specifies which editor is used by mutt.
-set editor="vim"
+set editor="nvim"
 
 # Controls whether or not a copy of the messages you are replying to is
 # included in your reply.
