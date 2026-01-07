@@ -5,7 +5,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    detect_proxy = true,
     config = function()
       require("codeium").setup({
         enable_cmp_source = false,
