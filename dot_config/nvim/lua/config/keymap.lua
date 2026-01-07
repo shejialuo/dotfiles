@@ -24,6 +24,30 @@ map(
   { desc = "Redraw / Clear hlsearch / Diff Update" }
 )
 
+-- highlights under cursor
+map("n", "<leader>ui", vim.show_pos, { desc = "Inspect Pos" })
+map("n", "<leader>uI", function() vim.treesitter.inspect_tree() vim.api.nvim_input("I") end, { desc = "Inspect Tree" })
+
+-- buffers
+map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>bd", function()
+  Snacks.bufdelete()
+end, { desc = "Delete Buffer" })
+map("n", "<leader>bo", function()
+  Snacks.bufdelete.other()
+end, { desc = "Delete Other Buffers" })
+map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
+
+-- tabs
+map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
+map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
+map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
 -- diagnostic
 local diagnostic_goto = function(next, severity)
   return function()
@@ -42,13 +66,31 @@ map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
 map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
--- quit
+-- quit/session
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+map("n", "<leader>qs", function() require("persistence").load() end, { desc = "Load Session For Current Dir" })
+map("n", "<leader>qS", function() require("persistence").select() end, { desc = "Select Session To Load" })
+map("n", "<leader>ql", function() require("persistence").load({ last = true }) end, { desc = "Load the Last Session" })
+map("n", "<leader>qd", function() require("persistence").stop() end, { desc = "Stop Session" })
+
+-- location list
+map("n", "<leader>xl", function()
+  local success, err = pcall(vim.fn.getloclist(0, { winid = 0 }).winid ~= 0 and vim.cmd.lclose or vim.cmd.lopen)
+  if not success and err then
+    vim.notify(err, vim.log.levels.ERROR)
+  end
+end, { desc = "Location List" })
+
+-- quickfix list
+map("n", "<leader>xq", function()
+  local success, err = pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
+  if not success and err then
+    vim.notify(err, vim.log.levels.ERROR)
+  end
+end, { desc = "Quickfix List" })
 
 --- lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", { desc = "Lazy" })
-
---- Snacks.nvim keymaps
 
 -- Top Pickers & Explorer
 map("n", "<leader><space>", function() Snacks.picker.smart() end, {desc = "Smart Find Files"})
@@ -64,8 +106,6 @@ map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find File
 map("n", "<leader>fg", function() Snacks.picker.git_files() end, { desc = "Find Git Files" })
 map("n", "<leader>fp", function() Snacks.picker.projects() end, { desc = "Projects" })
 map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "Recent" })
-map("n", "<leader>fs", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols" })
-map("n", "<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, { desc = "LSP Workspace Symbols" })
 
 -- toggle options
 Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
@@ -84,20 +124,33 @@ if vim.lsp.inlay_hint then
   Snacks.toggle.inlay_hints():map("<leader>uh")
 end
 
--- lsp
-map("n", "gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
-map("n", "gD", function() Snacks.picker.lsp_declarations() end, { desc = "Goto Declaration" })
-map("n", "gr", function() Snacks.picker.lsp_references() end, { nowait = true, desc = "References" })
-map("n", "gi", function() Snacks.picker.lsp_implementations() end, { desc = "Goto Implementation" })
-map("n", "gy", function() Snacks.picker.lsp_type_definitions() end, { desc = "Goto T[y]pe Definition" })
-map("n", "gai", function() Snacks.picker.lsp_incoming_calls() end, { desc = "C[a]lls Incoming" })
-map("n", "gao", function() Snacks.picker.lsp_outgoing_calls() end, { desc = "C[a]lls Outgoing" })
+-- lazygit
+if vim.fn.executable("lazygit") == 1 then
+  map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit (cwd)" })
+end
 
 -- git
-map("n", "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log (cwd)" })
+map("n", "<leader>gl", function() Snacks.picker.git_log() end, { desc = "Git Log" })
 map("n", "<leader>gb", function() Snacks.picker.git_log_line() end, { desc = "Git Blame Line" })
 map("n", "<leader>gf", function() Snacks.picker.git_log_file() end, { desc = "Git Current File History" })
-map({ "n", "x" }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse (open)" })
-map({"n", "x" }, "<leader>gY", function()
-  Snacks.gitbrowse({ open = function(url) vim.fn.setreg("+", url) end, notify = false })
-end, { desc = "Git Browse (copy)" })
+map("n", "<leader>gd", function() Snacks.picker.git_diff() end, { desc = "Git Diff (Hunks)" })
+
+-- terminal
+-- We could use <id><leader>ft to open different terminals (not floating)
+-- We could use <id><leader>fT to open different terminals (floating)
+-- In the terminal, we could type two 'ESC' to go back to normal mode
+map("n", "<leader>ft", function() Snacks.terminal() end, { desc = "Terminal" })
+map("n", "<leader>fT", function()
+  Snacks.terminal(nil, {
+    win = {
+      position = "float",
+      backdrop = 60,
+    }
+  })
+end, { desc = "Floating Terminal" })
+map("n", "<C-`>", function()
+  local terminals = Snacks.terminal.list()
+  for _, term in ipairs(terminals) do
+    term:toggle()
+  end
+end, { desc = "Toggle All Terminals" })

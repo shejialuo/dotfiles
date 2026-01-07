@@ -4,7 +4,6 @@
 -- Statusline: "nvim-lualine/lualine.nvim"
 -- Notification and command UI: "folke/noice.nvim"
 -- Visual Whitespace: "mcauley-penney/visual-whitespace.nvim"
--- Trouble: "folke/trouble.nvim"
 
 local icons = require("config.icons").icons
 
@@ -29,7 +28,7 @@ end
 return {
   {
     "nvim-mini/mini.icons",
-    lazy = true,
+    event = "VeryLazy",
     opts = {
       file = {
         [".keep"] = { glyph = "󰊢", hl = "MiniIconsGrey" },
@@ -89,6 +88,17 @@ return {
         end,
       },
     },
+    config = function(_, opts)
+      require("bufferline").setup(opts)
+      -- Fix bufferline when restoring a session
+      vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
+        callback = function()
+          vim.schedule(function()
+            pcall(nvim_bufferline)
+          end)
+        end,
+      })
+    end,
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -171,6 +181,7 @@ return {
   },
   {
     "folke/noice.nvim",
+    event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim"
     },
@@ -225,59 +236,8 @@ return {
   {
     "mcauley-penney/visual-whitespace.nvim",
     event = "VeryLazy",
-
     keys = {
       { "<leader>uW", function() require("visual-whitespace").toggle() end, desc = "Toggle Visual Whitespace" },
     }
-  },
-  {
-    "folke/trouble.nvim",
-    cmd = { "Trouble" },
-    opts = {
-      modes = {
-        lsp = {
-          win = { position = "left" },
-        },
-        symbols = {
-          win = { position = "left" },
-        }
-      },
-    },
-    keys = {
-      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
-      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
-      { "<leader>cs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
-      { "<leader>cS", "<cmd>Trouble lsp toggle<cr>", desc = "LSP references/definitions/... (Trouble)" },
-      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
-      { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
-      {
-        "[q",
-        function()
-          if require("trouble").is_open() then
-            require("trouble").prev({ skip_groups = true, jump = true })
-          else
-            local ok, err = pcall(vim.cmd.cprev)
-            if not ok then
-              vim.notify(err, vim.log.levels.ERROR)
-            end
-          end
-        end,
-        desc = "Previous Trouble/Quickfix Item",
-      },
-      {
-        "]q",
-        function()
-          if require("trouble").is_open() then
-            require("trouble").next({ skip_groups = true, jump = true })
-          else
-            local ok, err = pcall(vim.cmd.cnext)
-            if not ok then
-              vim.notify(err, vim.log.levels.ERROR)
-            end
-          end
-        end,
-        desc = "Next Trouble/Quickfix Item",
-      },
-    },
   },
 }

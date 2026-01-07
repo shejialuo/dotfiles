@@ -1,6 +1,6 @@
--- Configurations for snacks.nvim
-
 return  {
+  -- "folke/snacks.nvim",
+  -- This plugin is for many useful tools
   "folke/snacks.nvim",
     opts = {
       bigfile = { enabled = true },
