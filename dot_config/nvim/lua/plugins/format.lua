@@ -23,6 +23,7 @@ return {
       formatters_by_ft = {
         python = { "isort", "black" },
         rust = { "rustfmt" },
+        beancount = { "bean-format" }
       },
 
       default_format_opts = {
