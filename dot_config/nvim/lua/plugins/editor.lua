@@ -193,6 +193,7 @@ return {
   -- A plugin to store yank history
   {
     "gbprod/yanky.nvim",
+    lazy = false,
     dependencies = { "folke/snacks.nvim" },
     opts = {
       ring = {
