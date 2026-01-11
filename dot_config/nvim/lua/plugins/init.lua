@@ -37,6 +37,8 @@ return {
         'c',
         'cpp',
         'beancount',
+        'rust',
+        'markdown',
       },
       require('nvim-treesitter').install(languages)
         vim.api.nvim_create_autocmd('FileType', {pattern = languages,
