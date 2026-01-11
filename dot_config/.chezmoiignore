@@ -6,4 +6,5 @@ sketchybar
 !mutt/
 !zathura/
 !yazi/
+!nvim/
 {{ end -}}

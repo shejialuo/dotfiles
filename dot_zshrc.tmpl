@@ -65,7 +65,7 @@ function y() {
 eval "$(zoxide init zsh)"
 {{ else if eq .chezmoi.hostname "mbp" -}}
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR="vim"
+export EDITOR="nvim"
 ZSH_THEME="dracula"
 
 plugins=(git gnu-utils copyfile copypath zsh-autosuggestions zsh-syntax-highlighting web-search)
@@ -102,9 +102,9 @@ source <(fzf --zsh)
 rfv() (
   RELOAD='reload:rg --column --color=always --smart-case {q} || :'
   OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
-            vim {1} +{2}     # No selection. Open the current line in Vim.
+            ${EDITOR} {1} +{2}     # No selection. Open the current line in Vim.
           else
-            vim +cw -q {+f}  # Build quickfix list for the selected items.
+            ${EDITOR} +cw -q {+f}  # Build quickfix list for the selected items.
           fi'
   fzf --disabled --ansi --multi \
       --bind "start:$RELOAD" --bind "change:$RELOAD" \
@@ -132,4 +132,5 @@ eval "$(zoxide init zsh)"
 # local setting
 export LC_COLLATE=C
 export LANG=en_US.UTF-8
+export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 {{ end -}}
