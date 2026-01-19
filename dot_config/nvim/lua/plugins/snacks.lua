@@ -13,6 +13,7 @@ return  {
       words = { enabled = true },
       picker = { enabled = true},
       explorer = { enabled = true },
+      quickfile = { enabled = true },
     },
     keys = {
       { "<leader>n", function()
