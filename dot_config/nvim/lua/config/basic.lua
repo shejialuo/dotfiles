@@ -7,7 +7,19 @@ vim.g.snacks_animate = true
 local opt = vim.opt
 
 -- Clipboard configuration for SSH and local environments
+-- For SSH, use OSC 52 for one-way clipboard access (copy only):
+--   - Copy: use "+y to send content to host clipboard via OSC 52
+--   - Paste: returns content from unnamed register instead of reading host
+--     clipboard, preventing remote from accessing host clipboard contents.
+--     Use terminal paste (Ctrl+Shift+V or Ctrl+V) to paste from host clipboard.
 if vim.env.SSH_CONNECTION then
+  local function paste()
+    return {
+      vim.fn.split(vim.fn.getreg(''), '\n'),
+      vim.fn.getregtype('')
+    }
+  end
+
   vim.g.clipboard = {
     name = 'OSC 52',
     copy = {
@@ -15,8 +27,8 @@ if vim.env.SSH_CONNECTION then
       ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
     },
     paste = {
-      ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+      ['+'] = paste,
+      ['*'] = paste,
     },
   }
 else
