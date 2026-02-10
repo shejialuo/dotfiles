@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.hostname "ArchLinux" -}}
+{{ if eq .chezmoi.hostname "luo-arch" -}}
 sketchybar
 {{ else if eq .chezmoi.hostname "mbp" -}}
 *
