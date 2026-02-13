@@ -2,8 +2,7 @@ configuration {
     modi: "window,run,ssh,drun";
     display-drun: "Apps";
     display-window: "Window";
-    ssh-client: "kitty +kitten ssh";
-    ssh-command: "kitty -e {ssh-client} {host}";
+    ssh-command: "kitty -e ssh {host} [-p {port}]";
     show-icons: true;
     dpi: 192;
 }

@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.hostname "luo-arch" -}}
+{{ if has .chezmoi.hostname (list "luo-arch" "luo-asahi") -}}
 #  QQMail (FoxMail)
 poll imap.qq.com protocol IMAP user "392499367@qq.com" password {{ (keepassxc "Mails/QQ").Password | quote }} ssl keep
 mimedecode

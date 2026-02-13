@@ -1,5 +1,8 @@
 {{ if eq .chezmoi.hostname "luo-arch" -}}
 sketchybar
+{{ else if eq .chezmoi.hostname "luo-asahi" -}}
+sketchybar
+picom/
 {{ else if eq .chezmoi.hostname "mbp" -}}
 *
 !sketchybar/

@@ -1,0 +1,3 @@
+{{ if eq .chezmoi.hostname "luo-asahi" }}
+clash.service
+{{ end -}}
