@@ -28,7 +28,10 @@ return {
           }
         },
       })
-    end
+    end,
+    keys = {
+      { "<leader>uz", "<cmd>Codeium Toggle<cr>", desc = "Toggle WindSurf"  }
+    }
   },
   {
     "coder/claudecode.nvim",
