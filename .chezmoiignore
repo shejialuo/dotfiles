@@ -3,7 +3,6 @@ README.md
 .aerospace.toml
 {{ else if eq .chezmoi.hostname "luo-asahi" -}}
 .aerospace.toml
-.screenlayout
 {{ else if eq .chezmoi.hostname "mbp" -}}
 *
 !.config/

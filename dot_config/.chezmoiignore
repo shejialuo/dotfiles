@@ -1,8 +1,11 @@
 {{ if eq .chezmoi.hostname "luo-arch" -}}
-sketchybar
+sketchybar/
 {{ else if eq .chezmoi.hostname "luo-asahi" -}}
-sketchybar
-picom/
+sketchybar/
+hypr/
+waybar/
+dunst/
+mimeapps.list
 {{ else if eq .chezmoi.hostname "mbp" -}}
 *
 !sketchybar/
