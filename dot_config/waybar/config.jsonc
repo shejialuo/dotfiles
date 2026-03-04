@@ -1,0 +1,77 @@
+// -*- mode: jsonc -*-
+{
+    "layer": "bottom",
+    "position": "top",
+    "modules-left": [
+        "hyprland/workspaces",
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "network",
+        "cpu",
+        "memory",
+        "pulseaudio",
+        "clock",
+        "tray",
+    ],
+    "network": {
+        "interval": 2,
+        "interface": "wlp0s20f3", // (Optional) To force the use of this interface
+        "format-wifi": "{icon} {essid} ( {bandwidthDownBytes}  {bandwidthUpBytes})",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-disconnected": "󰤭 ",
+        "on-click": "networkmanager_dmenu",
+        "tooltip": false,
+    },
+    "cpu": {
+        "interval": 10,
+        "format": " {}%",
+        "max-length": 10,
+
+    },
+    "memory": {
+        "interval": 30,
+        "format": "  {used} G",
+        "max-length": 10,
+        "tooltip": false,
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%  {format_source}",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth-muted": "   {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "clock": {
+        "format": " {:%H:%M}",
+        "format-alt": "󰃭 {:%A, %B %d, %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+    },
+    "tray": {
+        "spacing": 10,
+    },
+}

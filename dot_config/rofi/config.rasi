@@ -4,7 +4,6 @@ configuration {
     display-window: "Window";
     ssh-command: "kitty -e ssh {host} [-p {port}]";
     show-icons: true;
-    dpi: 192;
 }
 
 * {

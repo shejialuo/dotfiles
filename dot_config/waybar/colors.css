@@ -1,0 +1,18 @@
+@define-color black #000000;
+@define-color white #ffffff;
+
+@define-color bar_fg @white;
+@define-color bar_bg rgba(43, 48, 59, 0.85);
+
+@define-color network_fg @black;
+@define-color cpu_mem_fg @black;
+@define-color pulseaudio_fg @black;
+@define-color clock_fg @black;
+
+@define-color network_bg    rgba(210, 160, 120, 0.85);
+@define-color cpu_mem_bg    rgba(221, 201, 153, 0.85);
+@define-color pulseaudio_bg rgba(185, 205, 140, 0.85);
+@define-color clock_bg      rgba(150, 195, 210, 0.85);
+
+@define-color tray_fg #ddc999;
+@define-color tray_bg @bar_bg;
