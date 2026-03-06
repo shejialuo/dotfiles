@@ -5,7 +5,9 @@
     "modules-left": [
         "hyprland/workspaces",
     ],
-    "modules-center": [],
+    "modules-center": [
+        "mpd"
+    ],
     "modules-right": [
         "network",
         "cpu",
@@ -14,6 +16,13 @@
         "clock",
         "tray",
     ],
+    "mpd": {
+        "format": "  {artist} - {title}",
+        "format-stopped": "",
+        "format-disconnected": "",
+        "tooltip": false,
+        "max-length": 30,
+    },
     "network": {
         "interval": 2,
         "interface": "wlp0s20f3", // (Optional) To force the use of this interface

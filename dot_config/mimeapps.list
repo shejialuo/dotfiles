@@ -6,7 +6,7 @@ image/jepg=viewnior.desktop;
 image/jpg=viewnior.desktop;
 image/pjpeg=viewnior.desktop;
 image/png=viewnior.desktop;
-text/html=microsoft-edge.desktop;
+text/html=chromium.desktop
 text/english=nvim.desktop;
 text/plain=nvim.desktop;
 text/x-java=nvim.desktop;
@@ -21,10 +21,13 @@ text/x-chdr=nvim.desktop;
 text/x-csrc=nvim.desktop;
 text/x-tcl=nvim.desktop;
 text/x-tex=nvim.desktop;
-x-scheme-handler/http=microsoft-edge.desktop
-x-scheme-handler/https=microsoft-edge.desktop
+x-scheme-handler/http=chromium.desktop
+x-scheme-handler/https=chromium.desktop
 inode/directory=pcmanfm.desktop
 application/wps-office.docx=libreoffice-writer.desktop
+x-scheme-handler/mailto=chromium.desktop
+x-scheme-handler/about=chromium.desktop
+x-scheme-handler/unknown=chromium.desktop
 
 [Added Associations]
 application/wps-office.docx=libreoffice-writer.desktop;

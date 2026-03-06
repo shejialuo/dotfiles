@@ -60,7 +60,7 @@ format = "<b><u>%s</u></b><i>%p</i>\n%b\n"
 
 # Context/Action settings
 dmenu = /usr/bin/env rofi -dmenu -p 'dunst:'
-browser = /usr/bin/microsoft-edge-stable
+browser = /usr/bin/chromium
 always_run_script = true
 mouse_left_click = close_current
 mouse_middle_click = do_action, close_current
