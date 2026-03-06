@@ -4,10 +4,9 @@
     "position": "top",
     "modules-left": [
         "hyprland/workspaces",
+        "mpd",
     ],
-    "modules-center": [
-        "mpd"
-    ],
+    "modules-center": [],
     "modules-right": [
         "network",
         "cpu",
