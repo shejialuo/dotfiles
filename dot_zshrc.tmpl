@@ -63,6 +63,9 @@ function y() {
 
 # zoxide configuration
 eval "$(zoxide init zsh)"
+
+# zsh-autosuggestion configuration
+bindkey '^Y' autosuggest-accept
 {{ else if eq .chezmoi.hostname "mbp" -}}
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
