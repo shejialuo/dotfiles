@@ -20,6 +20,24 @@ return {
                      { expr = true, replace_keycodes = false })
     end,
   },
+  -- "nvim-mini/mini.surround"
+  -- This plugin is used to operate the surround
+  {
+    "nvim-mini/mini.surround",
+    version = "*",
+    opts = {
+      mappings = {
+        add = "gsa",
+        delete = "gsd",
+        find = "gsf",
+        find_left = "gsF",
+        highlight = "gsh",
+        replace = "gsr",
+        suffix_last = "l",
+        suffix_next = "n",
+      },
+    },
+  },
   -- "nvim-mini/mini.ai"
   -- This plugin is used to enhance the textobject of neovim
   -- Besides the common textobject `", <, [`. Sometimes, we want more semantic

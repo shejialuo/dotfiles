@@ -34,19 +34,22 @@ return {
 
     config = function()
       local languages = {
-        'c',
-        'cpp',
-        'beancount',
-        'rust',
-        'markdown',
+        "c",
+        "cpp",
+        "beancount",
+        "rust",
+        "markdown",
+        "python",
+        "haskell",
+        "bash",
       },
-      require('nvim-treesitter').install(languages)
-        vim.api.nvim_create_autocmd('FileType', {pattern = languages,
+      require("nvim-treesitter").install(languages)
+        vim.api.nvim_create_autocmd("FileType", {pattern = languages,
           callback = function()
             vim.treesitter.start() -- enable highlight
 
-            vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-            vim.wo.foldmethod = 'expr'
+            vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.wo.foldmethod = "expr"
           end,
     })
     end,

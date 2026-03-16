@@ -15,20 +15,20 @@ local opt = vim.opt
 if vim.env.SSH_CONNECTION then
   local function paste()
     return {
-      vim.fn.split(vim.fn.getreg(''), '\n'),
-      vim.fn.getregtype('')
+      vim.fn.split(vim.fn.getreg(""), "\n"),
+      vim.fn.getregtype("")
     }
   end
 
   vim.g.clipboard = {
-    name = 'OSC 52',
+    name = "OSC 52",
     copy = {
-      ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
-      ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+      ["s"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
     },
     paste = {
-      ['+'] = paste,
-      ['*'] = paste,
+      ["+"] = paste,
+      ["*"] = paste,
     },
   }
 else
@@ -44,7 +44,7 @@ vim.filetype.add({
 })
 
 opt.foldlevel = 99 -- don't fold by default
-opt.foldlevelstart = 99 -- don't fold by default
+opt.foldlevelstart = 99 -- don"t fold by default
 opt.exrc = true -- Enable per-project ".nvim.lua" files
 opt.expandtab = true -- Use spaces instead of tabs
 opt.softtabstop = -1 -- Use shiftwidth value for softtabstop
