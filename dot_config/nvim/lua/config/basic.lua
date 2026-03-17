@@ -31,8 +31,6 @@ if vim.env.SSH_CONNECTION then
       ["*"] = paste,
     },
   }
-else
-  opt.clipboard = "unnamedplus"
 end
 
 -- Filetype associations for beancount files
