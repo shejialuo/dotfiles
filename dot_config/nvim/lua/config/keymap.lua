@@ -1,3 +1,14 @@
+-- delet some keys to avoid conflicts
+local function del_if_exists(mode, lhs)
+  local ok, _ = pcall(vim.keymap.del, mode, lhs)
+end
+
+del_if_exists("n", "grn")
+del_if_exists("n", "gra")
+del_if_exists("n", "gri")
+del_if_exists("n", "grr")
+del_if_exists("n", "grt")
+
 local map = vim.keymap.set
 
 -- Resize window using <ctrl> arrow keys
