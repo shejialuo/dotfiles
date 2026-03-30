@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-APP_NAME="i3_volume_control"
+APP_NAME="volume_control"
 
 case "$1" in
     up)

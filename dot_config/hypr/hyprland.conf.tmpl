@@ -1,8 +1,18 @@
 ###########################################################
-###                Basic  configuration                ####
+###           Machine specified configuration          ####
 ###########################################################
 
-monitor = DP-1, 3840x2160@144, 0x0, 2
+source = ~/.config/hypr/machines/{{ .chezmoi.hostname }}.conf
+
+###########################################################
+####                     End                           ####
+###########################################################
+
+
+
+###########################################################
+###                Basic  configuration                ####
+###########################################################
 
 general {
     gaps_in = 8
@@ -131,7 +141,6 @@ exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESK
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = nm-applet
 exec-once = fcitx5
-exec-once = easyeffects --service-mode --hide-window
 exec-once = hyprpaper
 exec-once = hypridle
 exec-once = waybar
@@ -148,57 +157,34 @@ exec-once = wl-paste --watch cliphist store
 ####              Start applications                   ####
 ###########################################################
 
-# launch VSCode
 bind = $mod, f1, exec, code
 
-# launch Microsoft Edge
-bind = $mod, f2, exec, chromium
-
-# launch file manager
 bind = $mod, f3, exec, pcmanfm
 
-# launch spotify
-bind = $mod, f4, exec, spotify
-
-# launch kitty terminal
 bind = $mod, return, exec, kitty
 
-# launch screenshot
 bind = $mod, p, exec, ~/.config/hypr/screenshot.sh
 
-# application launcher
 bind = $mod, d, exec, rofi -show drun
 
-# dunst notification controls
 bind = $mod, z, exec, dunstctl action
 bind = $mod, x, exec, dunstctl context
 bind = $mod, i, exec, dunstctl close
 bind = $mod shift, i, exec, dunstctl set-paused toggle
 
-# toggle waybar (equivalent to polybar toggle)
 bind = $mod, m, exec, pkill -SIGUSR1 waybar
 
-# ssh launcher
 bind = $mod shift, s, exec, rofi -show ssh -no-parse-known-hosts
-
-# bluetooth
 bind = $mod, b, exec, rofi-bluetooth
-
-# betwork
 bind = $mod, n, exec, networkmanager_dmenu
-
-# clipboard
 bind = $mod, c, exec, cliphist list | rofi -dmenu -p "Clipboard" -display-columns 2 | cliphist decode | wl-copy
 
-# goldendict
 bind = $mod, u, exec, goldendict $(wl-paste -p)
 
-# volume control
 bind = , XF86AudioRaiseVolume, exec, $volume_control up
 bind = , XF86AudioLowerVolume, exec, $volume_control down
 bind = , XF86AudioMute, exec, $volume_control toggle
 
-# lock the session
 bind = $mod , w, exec, hyprlock
 
 ###########################################################
@@ -305,20 +291,6 @@ bind = $mod shift, g, lockactivegroup, toggle
 
 
 ###########################################################
-####               Spotify control                     ####
-###########################################################
-
-bind = $mod ctrl, up,    exec, dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-bind = $mod ctrl, left,  exec, dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-bind = $mod ctrl, right, exec, dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-
-###########################################################
-####                    End                            ####
-###########################################################
-
-
-
-###########################################################
 ####              Workspaces operation                 ####
 ###########################################################
 
@@ -351,20 +323,6 @@ bind = $mod shift, 5, movetoworkspace, 5
 bind = $mod shift, 6, movetoworkspace, 6
 bind = $mod shift, 7, movetoworkspace, 7
 bind = $mod shift, 8, movetoworkspace, 8
-
-###########################################################
-####                    End                            ####
-###########################################################
-
-
-
-###########################################################
-####                 Window rules                      ####
-###########################################################
-
-windowrule = opacity 1.0 override 1.0 override, match:class chromium
-windowrule = opacity 1.0 override 1.0 override, match:class mpv
-windowrule = opacity 1.0 override 1.0 override, match:class org.pwmt.zathura
 
 ###########################################################
 ####                    End                            ####

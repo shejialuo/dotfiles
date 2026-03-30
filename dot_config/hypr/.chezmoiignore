@@ -1,0 +1,4 @@
+{{ if eq .chezmoi.hostname "luo-asahi" -}}
+hyprlock.conf
+hyprpaper.conf
+{{ end -}}
