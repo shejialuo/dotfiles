@@ -2,7 +2,6 @@
 sketchybar/
 {{ else if eq .chezmoi.hostname "luo-asahi" -}}
 sketchybar/
-waybar/
 mimeapps.list
 {{ else if eq .chezmoi.hostname "mbp" -}}
 *

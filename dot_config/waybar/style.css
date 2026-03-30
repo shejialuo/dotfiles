@@ -47,6 +47,7 @@ button:hover {
 #memory,
 #network,
 #pulseaudio,
+#battery,
 #tray {
     padding: 0 10px;
 }
@@ -84,6 +85,11 @@ button:hover {
 #cpu {
     color: @cpu_mem_fg;
     background-color: @cpu_mem_bg;
+}
+
+#battery {
+    color:@battery_fg;
+    background-color:@battery_bg;
 }
 
 #clock {
