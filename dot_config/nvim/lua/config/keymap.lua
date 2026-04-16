@@ -8,6 +8,7 @@ del_if_exists("n", "gra")
 del_if_exists("n", "gri")
 del_if_exists("n", "grr")
 del_if_exists("n", "grt")
+del_if_exists("n", "grx")
 del_if_exists("n", "gO")
 
 local map = vim.keymap.set
