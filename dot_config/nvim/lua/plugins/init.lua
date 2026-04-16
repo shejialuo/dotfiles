@@ -42,7 +42,7 @@ return {
         "python",
         "haskell",
         "bash",
-      },
+      }
       require("nvim-treesitter").install(languages)
         vim.api.nvim_create_autocmd("FileType", {pattern = languages,
           callback = function()

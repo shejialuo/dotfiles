@@ -33,54 +33,54 @@ return {
           vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
         end
 
-        if client.supports_method("textDocument/references") then
+        if client:supports_method("textDocument/references") then
           map("n", "gr", function() Snacks.picker.lsp_references() end, "References")
         end
-        if client.supports_method("textDocument/definition") then
+        if client:supports_method("textDocument/definition") then
           map("n", "gd", function() Snacks.picker.lsp_definitions() end, "Goto Definition")
         end
-        if client.supports_method("textDocument/declaration") then
+        if client:supports_method("textDocument/declaration") then
           map("n", "gD", function() Snacks.picker.lsp_declarations() end, "Goto Declaration")
         end
-        if client.supports_method("textDocument/implementation") then
+        if client:supports_method("textDocument/implementation") then
           map("n", "gi", function() Snacks.picker.lsp_implementations() end, "Goto Implementation")
         end
-        if client.supports_method("textDocument/typeDefinition") then
+        if client:supports_method("textDocument/typeDefinition") then
           map("n", "gy", function() Snacks.picker.lsp_type_definitions() end, "Goto T[y]pe Definition")
         end
 
-        if client.supports_method("callHierarchy/incomingCalls") then
+        if client:supports_method("callHierarchy/incomingCalls") then
           map("n", "gai", function() Snacks.picker.lsp_incoming_calls() end, "C[a]lls Incoming")
         end
-        if client.supports_method("callHierarchy/outgoingCalls") then
+        if client:supports_method("callHierarchy/outgoingCalls") then
           map("n", "gao", function() Snacks.picker.lsp_outgoing_calls() end, "C[a]lls Outgoing")
         end
 
-        if client.supports_method("textDocument/documentSymbol") then
+        if client:supports_method("textDocument/documentSymbol") then
           map("n", "<leader>fs", function() Snacks.picker.lsp_symbols() end, "LSP Symbols")
         end
-        if client.supports_method("workspace/symbol") then
+        if client:supports_method("workspace/symbol") then
           map("n", "<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, "LSP Workspace Symbols")
         end
 
-        if client.supports_method("textDocument/rename") then
+        if client:supports_method("textDocument/rename") then
           map("n", "<leader>cr", ":IncRename", "Rename Symbol")
         end
-        if client.supports_method("textDocument/codeAction") then
+        if client:supports_method("textDocument/codeAction") then
           map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
         end
 
-        if client.supports_method("textDocument/hover") then
+        if client:supports_method("textDocument/hover") then
           map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
         end
 
         -- Inlay Hints
-        if client.supports_method("textDocument/inlayHint") then
+        if client:supports_method("textDocument/inlayHint") then
           vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
         end
 
         -- Code Lens
-        if client.supports_method("textDocument/codeLens") then
+        if client:supports_method("textDocument/codeLens") then
           vim.lsp.codelens.refresh()
 
           local codelens_group = vim.api.nvim_create_augroup("lsp_codelens", { clear = false })
