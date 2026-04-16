@@ -23,17 +23,25 @@ return {
       formatters_by_ft = {
         python = { "isort", "black" },
         rust = { "rustfmt" },
-        beancount = { "bean-format" }
+        beancount = { "bean-format" },
+        cpp = { "clang-format" },
+        c = { "clang-format" },
       },
 
       default_format_opts = {
         lsp_format = "fallback",
       },
 
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_format = "fallback",
-      },
+      format_on_save = function(bufnr)
+        local ignore_filetypes = { "c", "cpp" }
+        if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+          return
+        end
+        return {
+          timeout_ms = 500,
+          lsp_format = "fallback",
+        }
+      end,
     },
   },
 }
