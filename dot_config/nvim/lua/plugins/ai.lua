@@ -12,6 +12,10 @@ return {
         virtual_text = {
           enabled = true,
           manual = false,
+          filetypes = {
+            ["markdown"] = false,
+            ["codecompanion"] = false,
+          },
           key_bindings = {
             -- Accept the current completion.
             accept = "<C-y>",
@@ -27,6 +31,13 @@ return {
             prev = "<M-[>",
           }
         },
+      })
+      vim.api.nvim_set_hl(0, "CodeiumSuggestion", { link = "Comment" })
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "*",
+        callback = function()
+            vim.api.nvim_set_hl(0, "CodeiumSuggestion", { link = "Comment" })
+        end,
       })
     end,
     keys = {
