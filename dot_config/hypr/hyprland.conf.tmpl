@@ -139,6 +139,7 @@ bind = $mod shift, e, exec, echo -e "Yes\nNo" | rofi -dmenu -p "Exit Hyprland?" 
 
 exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec-once = systemctl --user start hyprpolkitagent
 exec-once = nm-applet
 exec-once = fcitx5
 exec-once = hyprpaper
