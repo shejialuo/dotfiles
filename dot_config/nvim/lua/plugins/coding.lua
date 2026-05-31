@@ -76,6 +76,8 @@ return {
       keymap = {
         preset = "default",
         ["<CR>"] = { "accept", "fallback" },
+        ["<C-j>"] = { "select_next", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
         ["<Tab>"] = {
           function(cmp)
             if cmp.snippet_active() then
@@ -122,5 +124,22 @@ return {
     opts = {
       input_buffer_type = "snacks",
     },
+  },
+  -- "esmuellert/codediff.nvim"
+  -- This plugin is used for diff like vscode
+  {
+    "esmuellert/codediff.nvim",
+    cmd = "CodeDiff",
+    opts = {
+      keymaps = {
+        view = {
+          toggle_explorer = "<leader>e",
+          focus_explorer = false,
+        },
+      }
+    },
+    keys = {
+      { "<leader>cc", "<cmd>CodeDiff<cr>", desc = "CodeDiff"  }
+    }
   }
 }

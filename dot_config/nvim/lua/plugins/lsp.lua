@@ -81,17 +81,11 @@ return {
 
         -- Code Lens
         if client:supports_method("textDocument/codeLens") then
-          vim.lsp.codelens.refresh()
+          vim.lsp.codelens.enable(true, { bufnr = ev.buf })
 
-          local codelens_group = vim.api.nvim_create_augroup("lsp_codelens", { clear = false })
-          vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-            buffer = bufnr,
-            group = codelens_group,
-            callback = vim.lsp.codelens.refresh,
-          })
-
-          map("n", "<leader>cl", vim.lsp.codelens.run, "Run Codelens")
-          map("n", "<leader>cC", vim.lsp.codelens.refresh, "Refresh Codelens")
+          map("n", "<leader>cl", function()
+            vim.lsp.codelens.run()
+          end, "Run Codelens")
         end
 
         -- Language specific keymaps
@@ -105,9 +99,11 @@ return {
 
     vim.diagnostic.config(opts.diagnostics)
     vim.lsp.enable("bashls")
+    vim.lsp.enable("gopls")
     vim.lsp.enable("clangd")
     vim.lsp.enable("beancount")
     vim.lsp.enable("rust_analyzer")
     vim.lsp.enable("pyright")
+    vim.lsp.enable("hls")
   end,
 }

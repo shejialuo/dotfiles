@@ -26,6 +26,7 @@ return {
         beancount = { "bean-format" },
         cpp = { "clang-format" },
         c = { "clang-format" },
+        go = { "gofmt" },
       },
 
       default_format_opts = {

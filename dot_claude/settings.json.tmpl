@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "autoUpdatesChannel": "stable",
+  "theme": "dark-daltonized",
+  "editorMode": "vim",
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+    "ANTHROPIC_AUTH_TOKEN": {{ (keepassxc "AI/deepseek").Password | quote }},
+    "ANTHROPIC_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-v4-flash",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "deepseek-v4-flash",
+    "CLAUDE_CODE_EFFORT_LEVEL": "max",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "API_TIMEOUT_MS": "1200000",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80"
+  },
+  "permissions": {
+    "allow": [
+      "Read(**/*)",
+      "Glob(**/*)"
+    ],
+    "ask": [
+      "Edit(**/*)",
+      "Write(**/*)",
+      "Bash(*)"
+    ],
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(rm * /home/*)",
+      "Bash(rm * /root/*)",
+      "Bash(rm * /etc/*)",
+      "Bash(rm * /usr/*)",
+      "Bash(rm * /var/*)",
+      "Bash(chmod 777 *)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | bash)",
+      "Bash(curl * | sh)",
+      "Bash(wget * | sh)"
+    ],
+    "defaultMode": "default"
+  }
+}

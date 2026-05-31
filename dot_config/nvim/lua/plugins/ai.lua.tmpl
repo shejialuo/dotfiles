@@ -18,7 +18,7 @@ return {
           },
           key_bindings = {
             -- Accept the current completion.
-            accept = "<C-y>",
+            accept = "<C-l>",
             -- Accept the next word.
             accept_word = false,
             -- Accept the next line.
@@ -46,6 +46,11 @@ return {
   },
   {
     "olimorris/codecompanion.nvim",
+    cmd = {
+      "CodeCompanion",
+      "CodeCompanionChat",
+      "CodeCompanionCLI",
+    },
     keys = {
       {
         "<leader>aa", "<cmd>CodeCompanionActions<cr>",
@@ -66,17 +71,20 @@ return {
       },
       adapters = {
         http = {
+          deepseek = function()
+            return require("codecompanion.adapters").extend("deepseek", {
+              env = {
+                api_key = {{ (keepassxc "AI/deepseek").Password | quote }},
+              },
+            })
+          end,
           opts = {
             show_presets = false,
           }
         },
         acp = {
-          codex = function()
-            return require("codecompanion.adapters").extend("codex", {
-              defaults = {
-                auth_method = "chatgpt"
-              },
-            })
+          claude_code = function()
+            return require("codecompanion.adapters").extend("claude_code", {})
           end,
           opts = {
             show_presets = false,
@@ -84,19 +92,21 @@ return {
         }
       },
       interactions = {
-        chat = {
-          adapter = "codex",
-        },
         cli = {
-          agent = "codex",
+          agent = "claude_code",
           agents = {
-            codex = {
-              cmd = "codex",
+            claude_code = {
+              cmd = "claude",
               args = {},
-              description = "codex CLI",
-              provider = "terminal",
+              descrption = "Claude Code CLI",
             }
-          },
+          }
+        },
+        inline = {
+          adapter = "deepseek",
+        },
+        chat = {
+          adapter = "claude_code",
         },
       },
     },

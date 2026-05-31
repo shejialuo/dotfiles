@@ -9,6 +9,15 @@ return {
     lazy = false,
     priority = 1500,
     config = function()
+      -- Define the customized colors for diff highlight group
+      require("dracula").setup({
+        overrides = {
+          DiffAdd = { bg = "#244b3d", fg = "#f8f8f2" },
+          DiffDelete = { bg = "#4b2c34", fg = "#f8f8f2" },
+          DiffChange = { bg = "#2b3254", fg = "#f8f8f2" },
+          DiffText = { bg = "#3b4f7a", fg = "#f8f8f2", bold = true },
+        },
+      })
       vim.cmd([[colorscheme dracula]])
     end,
   },
@@ -43,6 +52,8 @@ return {
         "haskell",
         "bash",
         "yaml",
+        "json",
+        "go",
       }
       require("nvim-treesitter").install(languages)
         vim.api.nvim_create_autocmd("FileType", {pattern = languages,
