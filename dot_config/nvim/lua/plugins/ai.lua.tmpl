@@ -83,8 +83,8 @@ return {
           }
         },
         acp = {
-          claude_code = function()
-            return require("codecompanion.adapters").extend("claude_code", {})
+          opencode = function()
+            return require("codecompanion.adapters").extend("opencode", {})
           end,
           opts = {
             show_presets = false,
@@ -93,12 +93,12 @@ return {
       },
       interactions = {
         cli = {
-          agent = "claude_code",
+          agent = "opencode",
           agents = {
             claude_code = {
-              cmd = "claude",
+              cmd = "opencode",
               args = {},
-              descrption = "Claude Code CLI",
+              descrption = "opencode cli",
             }
           }
         },
@@ -106,7 +106,7 @@ return {
           adapter = "deepseek",
         },
         chat = {
-          adapter = "claude_code",
+          adapter = "opencode",
         },
       },
     },
