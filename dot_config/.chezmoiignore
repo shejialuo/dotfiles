@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.hostname "luo-arch" -}}
 sketchybar/
+hyprdynamicmonitors/
 {{ else if eq .chezmoi.hostname "luo-asahi" -}}
 sketchybar/
 mimeapps.list

@@ -1,0 +1,19 @@
+[general]
+destination = "$HOME/.config/hypr/monitors.lua"
+
+[profiles.laptop_only]
+config_file = "hyprconfigs/laptop.lua"
+config_file_type = "static"
+
+[[profiles.laptop_only.conditions.required_monitors]]
+name = "eDP-1"
+
+[profiles.dual_setup]
+config_file = "hyprconfigs/dual.lua.tmpl"
+config_file_type = "template"
+
+[[profiles.dual_setup.conditions.required_monitors]]
+name = "eDP-1"
+
+[[profiles.dual_setup.conditions.required_monitors]]
+name = "HDMI-A-1"
