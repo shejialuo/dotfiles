@@ -71,11 +71,13 @@ return {
       },
       adapters = {
         http = {
-          deepseek = function()
-            return require("codecompanion.adapters").extend("deepseek", {
-              env = {
-                api_key = {{ (keepassxc "AI/deepseek").Password | quote }},
-              },
+          ollama = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              schema = {
+                model = {
+                  default = "qwen3.5:9b",
+                }
+              }
             })
           end,
           opts = {
@@ -103,10 +105,17 @@ return {
           }
         },
         inline = {
-          adapter = "deepseek",
+          adapter = "ollama",
         },
         chat = {
-          adapter = "opencode",
+          adapter = {
+            name = "opencode",
+            {{- if eq .chezmoi.hostname "luo-arch" }}
+            model = "ollama/qwen3.5:9b",
+            {{- else }}
+            model = "opencode/deepseek-v4-flash-free",
+            {{- end}}
+          }
         },
       },
     },

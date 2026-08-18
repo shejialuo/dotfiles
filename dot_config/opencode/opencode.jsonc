@@ -15,5 +15,19 @@
   },
   "lsp": false,
   "autoupdate": false,
-  "share": "disabled"
+  "share": "disabled",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama Local",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "qwen3.5:9b": {
+          "name": "Qwen3.5 9B"
+        }
+      }
+    }
+  },
 }

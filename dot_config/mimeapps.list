@@ -29,7 +29,7 @@ x-scheme-handler/mailto=chromium.desktop
 x-scheme-handler/about=chromium.desktop
 x-scheme-handler/unknown=chromium.desktop
 x-scheme-handler/slack=slack.desktop
+x-scheme-handler/baiduyunguanjia=baidunetdisk.desktop
 
 [Added Associations]
 application/wps-office.docx=libreoffice-writer.desktop;
-x-scheme-handler/slack=slack.desktop;
