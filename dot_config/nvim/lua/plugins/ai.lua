@@ -85,8 +85,8 @@ return {
           }
         },
         acp = {
-          opencode = function()
-            return require("codecompanion.adapters").extend("opencode", {})
+          claude_code = function()
+            return require("codecompanion.adapters").extend("claude_code", {})
           end,
           opts = {
             show_presets = false,
@@ -95,12 +95,12 @@ return {
       },
       interactions = {
         cli = {
-          agent = "opencode",
+          agent = "claude_code",
           agents = {
             claude_code = {
-              cmd = "opencode",
+              cmd = "claude",
               args = {},
-              descrption = "opencode cli",
+              descrption = "claude code cli",
             }
           }
         },
@@ -109,12 +109,8 @@ return {
         },
         chat = {
           adapter = {
-            name = "opencode",
-            {{- if eq .chezmoi.hostname "luo-arch" }}
-            model = "ollama/qwen3.5:9b",
-            {{- else }}
-            model = "opencode/deepseek-v4-flash-free",
-            {{- end}}
+            name = "claude_code",
+            model = "qwen3.5:9b",
           }
         },
       },
