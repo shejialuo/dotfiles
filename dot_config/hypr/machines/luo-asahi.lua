@@ -9,6 +9,12 @@ local keyboard_brightness_control = "~/.config/hypr/keyboard_brightness_control.
 
 require("monitors")
 
+hl.config({
+  input = {
+    resolve_binds_by_sym = true,
+  },
+})
+
 hl.device({
   name = "apple-spi-keyboard",
   kb_options = "altwin:swap_alt_win",
