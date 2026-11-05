@@ -77,6 +77,12 @@ hl.config({
   }
 })
 
+hl.config({
+  render = {
+    cm_auto_hdr = 0,
+  },
+})
+
 ------------------------------------------------------------
 --- End
 ------------------------------------------------------------
@@ -628,7 +634,7 @@ hl.bind(
 )
 hl.bind(
   mod .. " + SHIFT + g",
-  hl.dsp.group.lock_active({
+  hl.dsp.group.lock({
     action = "toggle",
   })
 )
