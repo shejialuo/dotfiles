@@ -6,7 +6,6 @@ bind index,pager,attach  g         noop
 bind index,pager         d         noop
 bind index,pager         s         noop
 bind index,pager         c         noop
-bind generic,pager       t         noop
 
 bind generic,index,pager \Cf       next-page
 bind generic,index,pager \Cb       previous-page
